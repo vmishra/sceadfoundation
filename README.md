@@ -7,13 +7,10 @@
 [![Website](https://img.shields.io/badge/Website-sceadfoundation.org-2BBCC0?style=for-the-badge&logo=google-chrome&logoColor=white)](https://www.sceadfoundation.org/)
 [![WhatsApp](https://img.shields.io/badge/WhatsApp-Chat_Now-25D366?style=for-the-badge&logo=whatsapp&logoColor=white)](https://wa.me/919845222812?text=Hello%20SCEAD%20Foundation!%20I%20visited%20your%20website%20and%20would%20love%20to%20know%20more%20about%20your%20work.)
 [![Donate](https://img.shields.io/badge/Donate-Support_Us-F5A623?style=for-the-badge&logo=heart&logoColor=white)](#-donate)
-[![License](https://img.shields.io/badge/License-All_Rights_Reserved-1A1A2E?style=for-the-badge)](#)
 
 <br />
 
-<img src="screenshots/homepage-hero.png" alt="SCEAD Foundation Website — Homepage" width="100%" style="border-radius: 12px;" />
-
-<br />
+<img src="screenshots/homepage-hero.png" alt="SCEAD Foundation Website — Homepage" width="100%" />
 
 **Empowering Communities. Transforming Lives.**
 
@@ -47,6 +44,8 @@ Our work is endorsed by the **Governor of Karnataka**, the **US Secretary of Sta
 | Vulnerable Youth Aided | **50,000+** |
 | Sanitation Units Built | **500+** |
 | Government Schools Adopted | **35** |
+| Tribal Beneficiaries | **15,000+** |
+| International Volunteers | **300+ from 17 countries** |
 | CSR Partners | **10+** |
 | Years of Grassroots Work | **25+** |
 
@@ -54,66 +53,87 @@ Our work is endorsed by the **Governor of Karnataka**, the **US Secretary of Sta
 
 ---
 
-## Website Screenshots
+## Website Pages
 
-### Homepage — Hero Section
-<img src="screenshots/homepage-hero.png" alt="Homepage Hero" width="100%" />
+### Homepage
+Full landing page with hero, trust badges, impact stats, focus areas, 39-post chronological archive (2019-2025), diplomatic recognition, CTA cards, partner scroll, and Snehalaya HIV Home section.
 
-### About Us Page
-<img src="screenshots/about-page.png" alt="About Us Page" width="100%" />
+<img src="screenshots/homepage-hero.png" alt="Homepage" width="100%" />
 
-### Programs Page
+### About Us
+Team & advisory board (IRS, IPS officers), 9-milestone timeline, founder section, values, 3-city presence, and global volunteer network with 17 country flags.
+
+<img src="screenshots/about-page.png" alt="About Page" width="100%" />
+
+### Programs
+7 program areas — environment, education, HIV home, girl child, community development, elderly care, disaster relief — with stat pills, split-grid layouts, gallery overlays, and event cards.
+
 <img src="screenshots/programs-page.png" alt="Programs Page" width="100%" />
 
-### CSR Partnership Page
-<img src="screenshots/csr-page.png" alt="CSR Partnership Page" width="100%" />
+### CSR Partnership
+Compliance cards (80G, 12A, CSR-1), Schedule VII coverage, 4-step process timeline, 18 partner cards, and enquiry form with WhatsApp.
+
+<img src="screenshots/csr-page.png" alt="CSR Page" width="100%" />
+
+### Volunteer & Intern
+Stat pills, 7 opportunity cards, internship features, real testimonials from Bahrain volunteers, 16-country coordinator network with flags, yoga program, and registration form.
+
+<img src="screenshots/volunteer-page.png" alt="Volunteer Page" width="100%" />
+
+### Contact
+Gradient icon cards, contact form with Google Maps, 3-branch office details, branded social buttons, and office hours.
+
+<img src="screenshots/contact-page.png" alt="Contact Page" width="100%" />
+
+### Art Gallery
+Fundraising through original oil paintings by Mariamma James. Artist portrait, painting specs, cause breakdown, 4-step purchase process.
+
+<img src="screenshots/art-gallery-page.png" alt="Art Gallery Page" width="100%" />
 
 ### Mobile Responsive
+
 <div align="center">
-<img src="screenshots/mobile-view.png" alt="Mobile View" width="300" />
+<img src="screenshots/mobile-home.png" alt="Mobile Home" width="250" />
+&nbsp;&nbsp;&nbsp;
+<img src="screenshots/mobile-about.png" alt="Mobile About" width="250" />
 </div>
 
 ---
 
 ## Core Focus Areas
 
-### 1. Climate Action & Environmental Sustainability
-- Large-scale plantation drives across Bengaluru, Anekal, Jigani, Bannerghatta, Shillong, and Metur Dam
-- Lake rejuvenation and ecosystem restoration
-- Carbon sequestration verified by **CERA** (Carbon Emissions Reduction Assessment), Mumbai
-- "Sowing Seeds of Sustainability" — 7,000 saplings project with Genpact (2024-2025)
-- Government Partnership: Governor of Karnataka flagged off Million Trees Project
+### 1. Climate Action & Environment
+- 200K+ trees planted across Bengaluru, Anekal, Jigani, Bannerghatta, Shillong, Metur Dam
+- Lake rejuvenation, CERA-verified carbon sequestration
+- Governor of Karnataka Million Trees Project, Genpact "Sowing Seeds of Sustainability" (7,000 saplings)
+- Diplomatic tree planting with consulates of Japan, Italy, Germany, Canada, UK, Australia
 
 ### 2. Education & Child Welfare
-- Education support for government school children from disadvantaged backgrounds
-- 35 government schools adopted for comprehensive support
-- Anti-child labour awareness campaigns
-- Blood group identification and health screening programs
-- HIV orphanage (Home for HIV) and Girl Child orphanage programs
+- 35 government schools adopted (Cleveland Town since 2011, Badrahalli Tamil Nadu 2024)
+- 50,000+ vulnerable youth aided
+- Anti-child labour, street children rescue, summer schools
+- Snehalaya HIV Children's Home (20+ years), Girl Child Orphanage, Save Girl Child Campaign
 
-### 3. Tribal Welfare & Community Development
-- Livestock distribution (cows, calves, sheep, goats) to 15,000+ tribal beneficiaries
-- 500+ sanitation units built for tribal communities and slum dwellers
-- Adopted 3 tribal villages in Bandipur for comprehensive development
-- Disaster & crisis management (Turkey Earthquake Relief 2023, COVID-19 Relief 2020)
+### 3. Community Development & Women Empowerment
+- 300,000+ women empowered through skill development and livelihood training
+- 15,000+ tribal beneficiaries via livestock distribution (cows, calves, sheep, goats)
+- 500+ sanitation units built, Saukhyam reusable pad training
+- Elderly care across tribal, rural, and urban communities
 
-### 4. Women Empowerment
-- Skill development and tailoring training for 300,000+ women
-- Saukhyam reusable sanitary pad production training for tribal women in Bandipur
-- Financial independence through livelihood initiatives
+### 4. Disaster Relief
+- Turkey earthquake relief (2023) — with Genpact, AHIMSA India, Turkish Consulate
+- COVID-19 relief (2020) — 12,000 kg food, US Secretary of State Pompeo tweet
 
 ---
 
 ## CSR Compliance
-
-SCEAD Foundation is fully equipped for corporate CSR partnerships:
 
 | Document | Status |
 |:---|:---|
 | 80G Registration | AAITS0428E25BL02 |
 | 12A Registration | AAITS0428E25BL01 / AAITS0428E |
 | CSR-1 Registration | Verified |
-| Certified Audit Reports | 3 years available |
+| Certified Audit Reports | 3 years, 100% clean |
 | Income Tax Returns | 10+ years continuous filing |
 | Government Registration | GAN-04-00209 |
 
@@ -121,20 +141,22 @@ SCEAD Foundation is fully equipped for corporate CSR partnerships:
 
 ## Tech Stack
 
-This is a **static website** built for performance and simplicity:
-
-- **HTML5** — Semantic, accessible markup
-- **CSS3** — Custom responsive design system with CSS variables
-- **Vanilla JavaScript** — Scroll animations, animated counters, mobile navigation
-- **Google Fonts** — Poppins typeface
-- **Font Awesome 6** — Icon library
-- **Zero frameworks** — No React, Vue, or build tools needed
+| Component | Technology |
+|:---|:---|
+| **Markup** | Semantic HTML5 |
+| **Styling** | CSS3 with CSS Variables, page-specific style blocks |
+| **Interactivity** | Vanilla JavaScript (zero frameworks) |
+| **Typography** | Google Fonts — Poppins |
+| **Icons** | Font Awesome 6 |
+| **Animations** | Custom IntersectionObserver-based scroll animations |
+| **Build** | None — pure static files, no bundler needed |
 
 ### Performance
-- Lazy-loaded images
-- Lightweight footprint (~25KB CSS + ~6KB JS)
-- Intersection Observer for scroll animations
-- Mobile-first responsive design (375px to 1440px+)
+- Lazy-loaded images with IntersectionObserver
+- Lightweight (~30KB CSS + ~8KB JS)
+- Custom scroll animations (no AOS library dependency)
+- Mobile-first responsive (375px to 1440px+)
+- Load-more pagination on homepage archive
 
 ---
 
@@ -142,27 +164,18 @@ This is a **static website** built for performance and simplicity:
 
 ```
 sceadfoundation/
-├── index.html              # Homepage
-├── about.html              # About Us — timeline, founder, values
-├── programs.html           # Programs — environment, education, community
-├── csr.html                # CSR Partnership — compliance, partners, form
-├── volunteer.html          # Volunteer & Intern — opportunities, form
-├── contact.html            # Contact — form, map, office info
-├── styles.css              # Global responsive stylesheet
-├── scripts.js              # Animations, counters, navigation
-├── images/                 # SCEAD Foundation project photographs
-│   ├── children-plantation-banner.jpg
-│   ├── plantation-drive.jpg
-│   ├── child-learning.jpg
-│   ├── livestock-distribution-women.jpg
-│   ├── livestock-event-group.jpg
-│   ├── cow-distribution-tribal.jpg
-│   ├── community-gathering.jpg
-│   ├── elderly-care.jpg
-│   ├── volunteer-children.jpg
-│   ├── saukhyam-pads.avif
-│   └── child-labor-brickkilns.webp
-└── screenshots/            # Website screenshots for README
+├── index.html              # Homepage — hero, stats, 39-post archive, recognition
+├── about.html              # About — timeline, team, values, global network
+├── programs.html           # Programs — 7 focus areas with galleries
+├── csr.html                # CSR — compliance, process, partners, form
+├── volunteer.html          # Volunteer — opportunities, testimonials, form
+├── contact.html            # Contact — form, map, branches
+├── art-gallery.html        # Art Gallery — paintings fundraiser
+├── styles.css              # Global design system
+├── scripts.js              # Animations, counters, navigation, load-more
+├── images/                 # 11 real SCEAD Foundation photographs
+├── screenshots/            # Website screenshots for README
+└── README.md               # This file
 ```
 
 ---
@@ -170,18 +183,13 @@ sceadfoundation/
 ## Run Locally
 
 ```bash
-# Clone the repository
 git clone https://github.com/vmishra/sceadfoundation.git
 cd sceadfoundation
-
-# Start a local server
 python3 -m http.server 8888
-
-# Open in browser
-open http://localhost:8888
+# Open http://localhost:8888
 ```
 
-No build step, no dependencies, no configuration. Just open and go.
+No build step. No dependencies. No configuration.
 
 ---
 
@@ -189,9 +197,11 @@ No build step, no dependencies, no configuration. Just open and go.
 
 <div align="center">
 
-**Genpact** · **Ascend Telecom** · **Anthem Biosciences** · **Zentree Labs** · **IDA Interior Design Associates**
+**Genpact** · **Ascend Telecom** · **Anthem Biosciences** · **Zentree Labs** · **Tower Vision India**
 
-**St. Joseph's Institutions** · **Tower Vision India** · **Mysore Wifiltronics** · **Prashanti Uniforms** · **Rotary Club of Bangalore Aagneya**
+**St. Joseph's Institutions** · **Christ University** · **AIESEC** · **IPYG** · **HWPL**
+
+**Rotary Club Bangalore** · **Jindal Global Law School** · **Candor International School** · **HCG Cancer Centre**
 
 </div>
 
@@ -199,25 +209,20 @@ No build step, no dependencies, no configuration. Just open and go.
 
 ## Recognition & Endorsements
 
-- **US Secretary of State Mike Pompeo** — Tweeted about SCEAD's COVID-19 relief (2020)
-- **Mr. Erik Solheim** — Former UN Environment Executive Director attended SCEAD's Global UnPlastic Day
-- **Governor of Karnataka** — Flagged off the Million Trees Project at Raj Bhavan (2022)
-- **Sri Harsha Vardhan** — IRS Commissioner, Customs and GST, Government of India
-- **Consulate Generals** — Italy (Mr. Alfonso Tagliaferri), Japan (Mr. Katasumasa Mauro), Germany (Mr. Achim Burkart), Canada, UK (James Godber, Deputy British High Commissioner), Australia (Ms. Caitlin Searle), France
-- **Newspaper Coverage** — Featured in Kannada press (Gaja Kesari and others)
-
----
-
-## Donate
-
-Your contribution directly supports tribal communities, underprivileged children, and women across India.
-
-<div align="center">
-
-[![Donate Now](https://img.shields.io/badge/Donate_Now-F5A623?style=for-the-badge&logo=heart&logoColor=white)](https://www.sceadfoundation.org/)
-[![WhatsApp](https://img.shields.io/badge/Chat_on_WhatsApp-25D366?style=for-the-badge&logo=whatsapp&logoColor=white)](https://wa.me/919845222812?text=Hello%20SCEAD%20Foundation!%20I%20would%20like%20to%20make%20a%20donation.)
-
-</div>
+| Who | What |
+|:---|:---|
+| **US Secretary of State Mike Pompeo** | Tweeted about SCEAD's COVID-19 relief (2020) |
+| **Mr. Erik Solheim** | Former UN Environment Executive Director visited SCEAD |
+| **Governor of Karnataka** | Flagged off Million Trees Project at Raj Bhavan (2022) |
+| **Sri Harsha Vardhan, IRS** | Commissioner Customs & GST — SCEAD Senior Adviser |
+| **Ms Nisha James, IPS** | Adviser on Women and Child |
+| **Consulate of Italy** | Mr. Alfonso Tagliaferri — tree planting & Hiroshima Day |
+| **Consulate of Japan** | Mr. Katsumasa Mauro — peace tree planting, Million Trees resolution |
+| **Consulate of Germany** | Mr. Achim Burkart — environment conference |
+| **British High Commission** | James Godber, Deputy Head of Mission — Hiroshima Day |
+| **Australian High Commission** | Ms. Caitlin Searle — plantation drive |
+| **Consulate of Canada** | Mr. Daniel Morency — Indo-Canadian student exchange |
+| **French Consulate** | Sapling handover ceremony |
 
 ---
 
@@ -225,19 +230,24 @@ Your contribution directly supports tribal communities, underprivileged children
 
 | | |
 |:---|:---|
-| **Address** | #293, 4th Floor, 15th Cross Road, 5th Main Rd, 5th Phase, J.P. Nagar, Bengaluru, Karnataka 560078 |
+| **Bengaluru HQ** | #293, 4th Floor, 15th Cross Road, 5th Main Rd, J.P. Nagar, Bengaluru 560078 |
+| **Mumbai Office** | Social Nagar, M.G. Road, Sion — Dharavi, Mumbai 400022 |
+| **Chandigarh** | Prof. Mohit Verma · contactchandigarh@sceadfoundation.org |
 | **Phone** | +91 9845222812 |
 | **Email** | contact@sceadfoundation.org |
-| **Website** | [www.sceadfoundation.org](https://www.sceadfoundation.org/) |
 | **WhatsApp** | [Chat Now](https://wa.me/919845222812) |
 
 ---
 
 <div align="center">
 
-**SCEAD Foundation India** · Reg. No: GAN-04-00209 · 80G & 12A Approved · CSR-1 Verified
+[![Donate Now](https://img.shields.io/badge/Donate_Now-F5A623?style=for-the-badge&logo=heart&logoColor=white)](https://www.sceadfoundation.org/)
+[![WhatsApp](https://img.shields.io/badge/Chat_on_WhatsApp-25D366?style=for-the-badge&logo=whatsapp&logoColor=white)](https://wa.me/919845222812?text=Hello%20SCEAD%20Foundation!%20I%20would%20like%20to%20make%20a%20donation.)
+[![Volunteer](https://img.shields.io/badge/Volunteer_With_Us-8B5CF6?style=for-the-badge&logo=people-group&logoColor=white)](https://wa.me/919845222812?text=Hello%20SCEAD!%20I%20want%20to%20volunteer.)
 
-*Empowering communities since 1998*
+**SCEAD Foundation India** · Est. 1998 · Reg: GAN-04-00209 · 80G & 12A Approved · CSR-1 Verified
+
+*Empowering communities. Transforming lives.*
 
 &copy; 2026 SCEAD Foundation India. All Rights Reserved.
 
