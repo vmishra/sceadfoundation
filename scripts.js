@@ -90,30 +90,29 @@ document.addEventListener('DOMContentLoaded', () => {
           }, parseInt(delay));
         }
       });
-    }, { threshold: 0.1, rootMargin: '0px 0px -40px 0px' });
+    }, { threshold: 0.08, rootMargin: '0px 0px -20px 0px' });
 
+    // Set initial transforms and start observing
     animateElements.forEach(el => {
       const type = el.getAttribute('data-aos');
       if (type === 'fade-up') {
-        el.style.transform = 'translateY(30px)';
+        el.style.transform = 'translateY(24px)';
       } else if (type === 'fade-right') {
-        el.style.transform = 'translateX(-30px)';
+        el.style.transform = 'translateX(-24px)';
       } else if (type === 'fade-left') {
-        el.style.transform = 'translateX(30px)';
+        el.style.transform = 'translateX(24px)';
       } else if (type === 'zoom-in') {
-        el.style.transform = 'scale(0.95)';
+        el.style.transform = 'scale(0.96)';
       }
-      el.style.transitionDuration = '0.6s';
-      el.style.transitionTimingFunction = 'ease-out';
-
       animateObserver.observe(el);
     });
-  }
 
-  // Reset transform on animate
-  const style = document.createElement('style');
-  style.textContent = '[data-aos].aos-animate { transform: none !important; }';
-  document.head.appendChild(style);
+    // Mark body as ready AFTER observer is set up — this enables the opacity:0 in CSS
+    // Use requestAnimationFrame to ensure transforms are applied first
+    requestAnimationFrame(() => {
+      document.body.classList.add('aos-ready');
+    });
+  }
 
   // ---------- Active Nav Link ----------
   const sections = document.querySelectorAll('section[id]');
