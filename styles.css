@@ -580,6 +580,43 @@ h3 { font-size: clamp(1.2rem, 3vw, 1.5rem); }
   gap: 30px;
 }
 
+/* Year Divider */
+.year-divider {
+  grid-column: 1 / -1;
+  display: flex;
+  align-items: center;
+  gap: 20px;
+  padding: 10px 0;
+  margin-top: 10px;
+}
+
+.year-divider:first-child { margin-top: 0; }
+
+.year-divider .year-label {
+  background: linear-gradient(135deg, var(--primary), var(--primary-dark));
+  color: var(--white);
+  padding: 8px 24px;
+  border-radius: 50px;
+  font-weight: 800;
+  font-size: 1.1rem;
+  white-space: nowrap;
+  box-shadow: 0 4px 15px rgba(43,188,192,0.3);
+}
+
+.year-divider .year-line {
+  flex: 1;
+  height: 2px;
+  background: linear-gradient(to right, var(--primary), transparent);
+  border-radius: 2px;
+}
+
+.year-divider .year-count {
+  font-size: 0.82rem;
+  color: var(--gray-600);
+  white-space: nowrap;
+  font-weight: 500;
+}
+
 .project-card {
   background: var(--white);
   border-radius: var(--radius);
@@ -608,18 +645,49 @@ h3 { font-size: clamp(1.2rem, 3vw, 1.5rem); }
 
 .project-card:hover .project-card-image img { transform: scale(1.06); }
 
+/* Date badge on project cards */
+.project-card-date {
+  position: absolute;
+  top: 12px;
+  right: 12px;
+  background: rgba(0,0,0,0.7);
+  backdrop-filter: blur(6px);
+  color: var(--white);
+  padding: 5px 12px;
+  border-radius: 6px;
+  font-size: 0.75rem;
+  font-weight: 600;
+  letter-spacing: 0.5px;
+}
+
+/* Diplomatic / special badge */
+.project-card-badge {
+  position: absolute;
+  top: 12px;
+  left: 12px;
+  background: var(--secondary);
+  color: var(--white);
+  padding: 4px 10px;
+  border-radius: 5px;
+  font-size: 0.7rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+}
+
 .project-card-body {
   padding: 24px;
 }
 
 .project-card-body h3 {
-  font-size: 1.1rem;
+  font-size: 1.05rem;
   margin-bottom: 10px;
   color: var(--dark);
+  line-height: 1.4;
 }
 
 .project-card-body p {
-  font-size: 0.92rem;
+  font-size: 0.9rem;
   color: var(--gray-600);
   margin-bottom: 16px;
   line-height: 1.6;
@@ -1144,6 +1212,87 @@ h3 { font-size: clamp(1.2rem, 3vw, 1.5rem); }
   .hero-buttons { flex-direction: column; align-items: center; }
 
   .container { padding: 0 16px; }
+}
+
+/* ---------- Trust Badges Strip ---------- */
+.trust-strip {
+  background: var(--dark);
+  padding: 20px 0;
+  border-bottom: 1px solid rgba(255,255,255,0.06);
+}
+
+.trust-strip .container {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 30px;
+  flex-wrap: wrap;
+}
+
+.trust-badge {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  color: rgba(255,255,255,0.7);
+  font-size: 0.8rem;
+  font-weight: 500;
+  white-space: nowrap;
+}
+
+.trust-badge i {
+  color: var(--secondary);
+  font-size: 1rem;
+}
+
+.trust-badge strong {
+  color: var(--white);
+}
+
+/* ---------- Endorsement Logos ---------- */
+.endorsement-strip {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 40px;
+  flex-wrap: wrap;
+  padding: 16px 0;
+  opacity: 0.6;
+  font-size: 0.82rem;
+  color: var(--gray-600);
+}
+
+.endorsement-strip span {
+  font-weight: 600;
+  white-space: nowrap;
+}
+
+/* ---------- Load More Button ---------- */
+.load-more-wrap {
+  text-align: center;
+  margin-top: 40px;
+}
+
+.load-more-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 14px 36px;
+  background: var(--white);
+  color: var(--primary);
+  border: 2px solid var(--primary);
+  border-radius: 50px;
+  font-family: 'Poppins', sans-serif;
+  font-weight: 600;
+  font-size: 0.95rem;
+  cursor: pointer;
+  transition: all var(--transition);
+}
+
+.load-more-btn:hover {
+  background: var(--primary);
+  color: var(--white);
+  transform: translateY(-2px);
+  box-shadow: 0 6px 20px rgba(43,188,192,0.3);
 }
 
 /* ---------- Animations ---------- */

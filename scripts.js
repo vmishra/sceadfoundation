@@ -178,4 +178,57 @@ document.addEventListener('DOMContentLoaded', () => {
     lazyImages.forEach(img => imgObserver.observe(img));
   }
 
+  // ---------- Show More / Load More for Project Cards ----------
+  const projectsGrid = document.querySelector('.projects-grid');
+  const loadMoreBtn = document.querySelector('.load-more-btn');
+  if (projectsGrid && loadMoreBtn) {
+    const allCards = projectsGrid.querySelectorAll('.project-card');
+    const yearDividers = projectsGrid.querySelectorAll('.year-divider');
+    const INITIAL_SHOW = 9;
+    let showing = INITIAL_SHOW;
+
+    // Hide cards beyond initial count
+    function updateVisibility() {
+      let cardIndex = 0;
+      const children = projectsGrid.children;
+      for (let i = 0; i < children.length; i++) {
+        const el = children[i];
+        if (el.classList.contains('year-divider')) {
+          // Show year divider if any of its following cards are visible
+          let hasVisibleCard = false;
+          let next = el.nextElementSibling;
+          while (next && !next.classList.contains('year-divider')) {
+            if (next.classList.contains('project-card')) {
+              const idx = Array.from(allCards).indexOf(next);
+              if (idx < showing) hasVisibleCard = true;
+            }
+            next = next.nextElementSibling;
+          }
+          el.style.display = hasVisibleCard ? '' : 'none';
+        } else if (el.classList.contains('project-card')) {
+          el.style.display = cardIndex < showing ? '' : 'none';
+          cardIndex++;
+        }
+      }
+      if (showing >= allCards.length) {
+        loadMoreBtn.style.display = 'none';
+      } else {
+        loadMoreBtn.textContent = `Show More (${allCards.length - showing} remaining)`;
+      }
+    }
+
+    loadMoreBtn.addEventListener('click', () => {
+      showing += 9;
+      updateVisibility();
+      // Re-trigger AOS for newly shown cards
+      if (typeof AOS !== 'undefined') AOS.refresh();
+    });
+
+    if (allCards.length > INITIAL_SHOW) {
+      updateVisibility();
+    } else {
+      loadMoreBtn.style.display = 'none';
+    }
+  }
+
 });
