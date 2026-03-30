@@ -163,28 +163,42 @@ h3 { font-size: clamp(1.2rem, 3vw, 1.5rem); }
 .logo {
   display: flex;
   align-items: center;
-  gap: 10px;
+  gap: 12px;
   font-size: 1.35rem;
   font-weight: 800;
-  letter-spacing: 1px;
+  letter-spacing: 0.5px;
 }
 
 .logo-icon {
-  width: 42px;
-  height: 42px;
-  background: linear-gradient(135deg, var(--primary), var(--primary-dark));
-  border-radius: 10px;
+  width: 44px;
+  height: 44px;
+  background: linear-gradient(135deg, var(--primary), #1a8f92);
+  border-radius: 12px;
   display: flex;
   align-items: center;
   justify-content: center;
   color: var(--white);
   font-weight: 900;
-  font-size: 0.8rem;
-  letter-spacing: 0;
+  font-size: 0.82rem;
+  letter-spacing: 0.5px;
+  box-shadow: 0 2px 8px rgba(43,188,192,0.3);
 }
 
-.logo-text span:first-child { color: var(--primary); }
-.logo-text span:last-child { color: var(--secondary); font-size: 0.65rem; display: block; font-weight: 400; letter-spacing: 0; margin-top: -4px; }
+.logo-text span:first-child {
+  color: var(--primary);
+  font-size: 1.3rem;
+  letter-spacing: 2px;
+  font-weight: 800;
+}
+.logo-text span:last-child {
+  color: var(--secondary);
+  font-size: 0.62rem;
+  display: block;
+  font-weight: 500;
+  letter-spacing: 0.5px;
+  margin-top: -3px;
+  opacity: 0.85;
+}
 
 .nav-links {
   display: flex;
