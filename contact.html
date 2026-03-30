@@ -3,13 +3,95 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta name="description" content="Contact SCEAD Foundation India — Reach out for donations, CSR partnerships, volunteering, or general enquiries. Visit us in Bangalore or get in touch online.">
+  <meta name="description" content="Contact SCEAD Foundation India — Bengaluru, Mumbai, Chandigarh. Reach out for donations, CSR, volunteering, or media enquiries. Phone: +91 9845222812.">
   <title>Contact Us — SCEAD Foundation India</title>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
   <link rel="stylesheet" href="styles.css">
+  <style>
+    .contact-cards { display: grid; grid-template-columns: repeat(4, 1fr); gap: 24px; }
+    .contact-card {
+      background: var(--white); padding: 32px 24px; border-radius: var(--radius); box-shadow: var(--shadow);
+      text-align: center; transition: all var(--transition); position: relative; overflow: hidden;
+    }
+    .contact-card::before { content:''; position:absolute; top:0; left:0; width:100%; height:4px; }
+    .contact-card:nth-child(1)::before { background: var(--primary); }
+    .contact-card:nth-child(2)::before { background: #3B82F6; }
+    .contact-card:nth-child(3)::before { background: #8B5CF6; }
+    .contact-card:nth-child(4)::before { background: #25D366; }
+    .contact-card:hover { transform: translateY(-5px); box-shadow: var(--shadow-lg); }
+    .contact-card .card-icon {
+      width: 60px; height: 60px; border-radius: 50%; display: flex; align-items: center; justify-content: center;
+      font-size: 1.4rem; color: var(--white); margin: 0 auto 16px;
+    }
+    .contact-card:nth-child(1) .card-icon { background: linear-gradient(135deg, var(--primary), var(--primary-dark)); }
+    .contact-card:nth-child(2) .card-icon { background: linear-gradient(135deg, #3B82F6, #2563EB); }
+    .contact-card:nth-child(3) .card-icon { background: linear-gradient(135deg, #8B5CF6, #7C3AED); }
+    .contact-card:nth-child(4) .card-icon { background: linear-gradient(135deg, #25D366, #1EBE57); }
+    .contact-card h3 { font-size: 1.05rem; margin-bottom: 8px; }
+    .contact-card p { font-size: 0.88rem; color: var(--gray-600); line-height: 1.6; }
+    .contact-card a { color: var(--primary); font-weight: 600; }
+
+    .form-map-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 40px; align-items: start; }
+    .form-card {
+      background: var(--white); padding: 36px; border-radius: var(--radius); box-shadow: var(--shadow-lg);
+    }
+    .form-card h2 { font-size: 1.5rem; margin-bottom: 6px; }
+    .form-card > p { color: var(--gray-600); font-size: 0.92rem; margin-bottom: 24px; }
+    .map-side h2 { font-size: 1.5rem; margin-bottom: 6px; }
+    .map-side > p { color: var(--gray-600); font-size: 0.92rem; margin-bottom: 20px; }
+
+    .branch-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 24px; }
+    .branch-card {
+      background: var(--white); padding: 30px 24px; border-radius: var(--radius); box-shadow: var(--shadow);
+      transition: all var(--transition); border-left: 4px solid transparent; text-align: left;
+    }
+    .branch-card:nth-child(1) { border-left-color: var(--primary); }
+    .branch-card:nth-child(2) { border-left-color: var(--secondary); }
+    .branch-card:nth-child(3) { border-left-color: #8B5CF6; }
+    .branch-card:hover { transform: translateY(-4px); box-shadow: var(--shadow-lg); }
+    .branch-card .branch-icon { font-size: 1.6rem; margin-bottom: 12px; }
+    .branch-card:nth-child(1) .branch-icon { color: var(--primary); }
+    .branch-card:nth-child(2) .branch-icon { color: var(--secondary); }
+    .branch-card:nth-child(3) .branch-icon { color: #8B5CF6; }
+    .branch-card h3 { font-size: 1.1rem; margin-bottom: 4px; }
+    .branch-card .branch-lead { color: var(--primary); font-weight: 600; font-size: 0.88rem; margin-bottom: 10px; }
+    .branch-card p { font-size: 0.85rem; color: var(--gray-600); line-height: 1.6; }
+    .branch-card .contact-line { display: flex; align-items: center; gap: 8px; margin-top: 8px; font-size: 0.85rem; }
+    .branch-card .contact-line i { color: var(--primary); font-size: 0.82rem; }
+
+    .hours-social-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 30px; }
+    .detail-card {
+      background: var(--white); padding: 32px; border-radius: var(--radius); box-shadow: var(--shadow);
+      transition: all var(--transition);
+    }
+    .detail-card:hover { box-shadow: var(--shadow-lg); }
+    .detail-card h3 { display: flex; align-items: center; gap: 10px; margin-bottom: 16px; font-size: 1.1rem; }
+    .detail-card h3 i { color: var(--primary); }
+    .detail-card p { font-size: 0.92rem; color: var(--gray-600); line-height: 1.7; }
+    .social-links { display: flex; gap: 14px; margin-top: 16px; }
+    .social-link {
+      width: 44px; height: 44px; border-radius: 50%; display: flex; align-items: center; justify-content: center;
+      font-size: 1.1rem; transition: all var(--transition); color: var(--white);
+    }
+    .social-link:nth-child(1) { background: #1877F2; }
+    .social-link:nth-child(2) { background: linear-gradient(135deg, #E1306C, #F77737); }
+    .social-link:nth-child(3) { background: #1DA1F2; }
+    .social-link:nth-child(4) { background: #FF0000; }
+    .social-link:hover { transform: translateY(-3px); opacity: 0.9; color: var(--white); }
+
+    @media (max-width: 992px) {
+      .contact-cards { grid-template-columns: repeat(2, 1fr); }
+      .form-map-grid { grid-template-columns: 1fr; }
+      .branch-grid { grid-template-columns: 1fr; }
+      .hours-social-grid { grid-template-columns: 1fr; }
+    }
+    @media (max-width: 480px) {
+      .contact-cards { grid-template-columns: 1fr; }
+    }
+  </style>
 </head>
 <body>
 
@@ -18,10 +100,7 @@
     <div class="container">
       <a href="index.html" class="logo" aria-label="SCEAD Foundation Home">
         <div class="logo-icon">SF</div>
-        <div class="logo-text">
-          <span>SCEAD</span>
-          <span>Foundation India</span>
-        </div>
+        <div class="logo-text"><span>SCEAD</span><span>Foundation India</span></div>
       </a>
       <div class="nav-links" id="navLinks">
         <a href="index.html">Home</a>
@@ -30,6 +109,7 @@
         <a href="csr.html">CSR Partnership</a>
         <a href="volunteer.html">Volunteer</a>
         <a href="contact.html" class="active">Contact</a>
+        <a href="art-gallery.html">Art Gallery</a>
         <a href="#donate" class="nav-donate">Donate</a>
       </div>
       <button class="hamburger" id="hamburger" aria-label="Toggle navigation menu" aria-expanded="false">
@@ -41,41 +121,38 @@
   <!-- Page Hero -->
   <section class="page-hero">
     <div class="container">
-      <h1 data-aos="fade-up">Contact Us</h1>
-      <p data-aos="fade-up" data-aos-delay="100" style="color: rgba(255,255,255,0.85); font-size: 1.1rem; margin-top: 10px;">Get in touch with SCEAD Foundation — we'd love to hear from you.</p>
-      <div class="breadcrumb" data-aos="fade-up" data-aos-delay="200">
-        <a href="index.html">Home</a>
-        <span>/</span>
-        <span>Contact</span>
-      </div>
+      <div class="breadcrumb" data-aos="fade-up"><a href="index.html">Home</a> / <span>Contact</span></div>
+      <h1 data-aos="fade-up">Get in Touch</h1>
+      <p data-aos="fade-up" data-aos-delay="100">We'd love to hear from you — whether it's about donations, CSR, volunteering, media, or a simple hello.</p>
     </div>
   </section>
 
   <!-- Contact Info Cards -->
   <section class="section" id="contact-info">
     <div class="container">
-      <div class="info-grid">
-        <div class="info-card" data-aos="fade-up">
-          <i class="fas fa-map-marker-alt"></i>
+      <div class="contact-cards">
+        <div class="contact-card" data-aos="fade-up">
+          <div class="card-icon"><i class="fas fa-map-marker-alt"></i></div>
           <h3>Visit Us</h3>
-          <p><strong>Bengaluru (HQ):</strong> #293, 4th Floor, 15th Cross Road, 5th Main Rd, 5th Phase, J.P. Nagar, Bengaluru 560078</p>
-          <p style="margin-top: 8px;"><strong>Mumbai:</strong> Social Nagar, M.G. Road, Sion &ndash; Dharavi, Mumbai 400022</p>
+          <p><strong>Bengaluru HQ</strong><br>#293, 4th Floor, 15th Cross Rd, 5th Main Rd, J.P. Nagar 5th Phase, 560078</p>
         </div>
-        <div class="info-card" data-aos="fade-up" data-aos-delay="100">
-          <i class="fas fa-phone"></i>
+        <div class="contact-card" data-aos="fade-up" data-aos-delay="100">
+          <div class="card-icon"><i class="fas fa-phone"></i></div>
           <h3>Call Us</h3>
-          <p>+91 9845222812 / 080 26686812</p>
+          <p style="font-size: 1.1rem; font-weight: 700; color: var(--dark); margin-bottom: 6px;">+91 98452 22812</p>
+          <p>080 2668 6812</p>
         </div>
-        <div class="info-card" data-aos="fade-up" data-aos-delay="200">
-          <i class="fas fa-envelope"></i>
+        <div class="contact-card" data-aos="fade-up" data-aos-delay="200">
+          <div class="card-icon"><i class="fas fa-envelope"></i></div>
           <h3>Email Us</h3>
-          <p>sceadfoundation@gmail.com<br>contact@sceadfoundation.org</p>
+          <p><a href="mailto:contact@sceadfoundation.org">contact@sceadfoundation.org</a></p>
+          <p style="margin-top: 4px;"><a href="mailto:sceadfoundation@gmail.com">sceadfoundation@gmail.com</a></p>
         </div>
-        <div class="info-card" data-aos="fade-up" data-aos-delay="300">
-          <i class="fa-brands fa-whatsapp"></i>
+        <div class="contact-card" data-aos="fade-up" data-aos-delay="300">
+          <div class="card-icon"><i class="fab fa-whatsapp"></i></div>
           <h3>WhatsApp</h3>
-          <p>Chat with us directly on WhatsApp for quick enquiries about donations, volunteering, or CSR partnerships.</p>
-          <a href="https://wa.me/919845222812" target="_blank" rel="noopener" class="btn btn-primary" style="margin-top: 12px; display: inline-block;"><i class="fa-brands fa-whatsapp"></i> Chat on WhatsApp</a>
+          <p>Quick enquiries about donations, volunteering, or CSR</p>
+          <a href="https://wa.me/919845222812?text=Hello%20SCEAD%20Foundation!%20I%20visited%20your%20website%20and%20would%20love%20to%20know%20more." target="_blank" rel="noopener" class="btn btn-sm btn-primary" style="margin-top: 12px;">Chat Now</a>
         </div>
       </div>
     </div>
@@ -84,54 +161,71 @@
   <!-- Contact Form + Map -->
   <section class="section section-alt" id="contact-form">
     <div class="container">
-      <div class="form-grid">
-        <!-- Contact Form -->
-        <div data-aos="fade-right">
-          <div class="section-header" style="text-align: left;">
-            <h2>Send Us a Message</h2>
-            <p>Fill out the form below and we'll get back to you as soon as possible.</p>
-          </div>
+      <div class="form-map-grid">
+        <div class="form-card" data-aos="fade-right">
+          <h2>Send Us a Message</h2>
+          <p>We'll get back to you within 24 hours.</p>
           <form action="#" method="POST">
-            <div class="form-group">
-              <label for="fullName">Full Name</label>
-              <input type="text" id="fullName" name="fullName" placeholder="Your full name" required>
+            <div class="form-grid">
+              <div class="form-group">
+                <label for="fullName">Full Name</label>
+                <input type="text" id="fullName" name="fullName" placeholder="Your full name" required>
+              </div>
+              <div class="form-group">
+                <label for="email">Email</label>
+                <input type="email" id="email" name="email" placeholder="you@email.com" required>
+              </div>
             </div>
-            <div class="form-group">
-              <label for="email">Email</label>
-              <input type="email" id="email" name="email" placeholder="Your email address" required>
-            </div>
-            <div class="form-group">
-              <label for="phone">Phone</label>
-              <input type="tel" id="phone" name="phone" placeholder="Your phone number">
-            </div>
-            <div class="form-group">
-              <label for="subject">Subject</label>
-              <select id="subject" name="subject" required>
-                <option value="" disabled selected>Select a subject</option>
-                <option value="General Enquiry">General Enquiry</option>
-                <option value="Donation">Donation</option>
-                <option value="CSR Partnership">CSR Partnership</option>
-                <option value="Volunteering">Volunteering</option>
-                <option value="Media/Press">Media/Press</option>
-                <option value="Other">Other</option>
-              </select>
+            <div class="form-grid">
+              <div class="form-group">
+                <label for="phone">Phone</label>
+                <input type="tel" id="phone" name="phone" placeholder="+91 XXXXX XXXXX">
+              </div>
+              <div class="form-group">
+                <label for="subject">Subject</label>
+                <select id="subject" name="subject" required>
+                  <option value="" disabled selected>Select a subject</option>
+                  <option value="General Enquiry">General Enquiry</option>
+                  <option value="Donation">Donation</option>
+                  <option value="CSR Partnership">CSR Partnership</option>
+                  <option value="Volunteering">Volunteering</option>
+                  <option value="Media/Press">Media / Press</option>
+                  <option value="Art Gallery">Art Gallery Purchase</option>
+                  <option value="Other">Other</option>
+                </select>
+              </div>
             </div>
             <div class="form-group">
               <label for="message">Message</label>
-              <textarea id="message" name="message" placeholder="Your message..." rows="5" required></textarea>
+              <textarea id="message" name="message" placeholder="Tell us how we can help..." rows="5" required></textarea>
             </div>
-            <button type="submit" class="btn btn-primary" style="width: 100%;"><i class="fas fa-paper-plane"></i> Send Message</button>
+            <button type="submit" class="btn btn-primary" style="width: 100%; justify-content: center;">
+              <i class="fas fa-paper-plane"></i> Send Message
+            </button>
           </form>
         </div>
-
-        <!-- Google Map -->
-        <div data-aos="fade-left">
-          <div class="section-header" style="text-align: left;">
-            <h2>Our Location</h2>
-            <p>Find us on the map — we're located in BTM 2nd Stage, Bangalore.</p>
+        <div class="map-side" data-aos="fade-left">
+          <h2>Find Us</h2>
+          <p>J.P. Nagar 5th Phase, Bengaluru, Karnataka</p>
+          <div class="map-container" style="height: 340px; margin-bottom: 24px;">
+            <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3889.0!2d77.585!3d12.905!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3bae150b0edbca41%3A0x7b5e3e8e8e8e8e8e!2sJ.P.%20Nagar%205th%20Phase%2C%20Bengaluru!5e0!3m2!1sen!2sin!4v1711900000000" width="100%" height="100%" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
           </div>
-          <div class="map-container">
-            <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3888.7!2d77.6!3d12.91!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x0!2zMTLCsDU0JzM2LjAiTiA3N8KwMzYnMDAuMCJF!5e0!3m2!1sen!2sin!4v1234567890" width="100%" height="100%" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+          <div class="hours-social-grid">
+            <div class="detail-card">
+              <h3><i class="fas fa-clock"></i> Office Hours</h3>
+              <p><strong>Monday — Saturday</strong><br>10:00 AM — 6:00 PM</p>
+              <p style="margin-top: 8px;">Closed on Sundays &amp; public holidays</p>
+            </div>
+            <div class="detail-card">
+              <h3><i class="fas fa-globe"></i> Connect Online</h3>
+              <p><a href="https://www.sceadfoundation.org" target="_blank" style="color: var(--primary); font-weight: 600;">sceadfoundation.org</a></p>
+              <div class="social-links">
+                <a href="#" class="social-link" aria-label="Facebook"><i class="fab fa-facebook-f"></i></a>
+                <a href="#" class="social-link" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
+                <a href="#" class="social-link" aria-label="Twitter"><i class="fab fa-twitter"></i></a>
+                <a href="#" class="social-link" aria-label="YouTube"><i class="fab fa-youtube"></i></a>
+              </div>
+            </div>
           </div>
         </div>
       </div>
@@ -142,75 +236,46 @@
   <section class="section" id="branches">
     <div class="container">
       <div class="section-header" data-aos="fade-up">
-        <h2>Our Branches</h2>
-        <p>SCEAD Foundation operates across multiple cities to maximise community impact.</p>
+        <h2>Our Offices</h2>
+        <p>Operating from three cities across India.</p>
       </div>
-      <div class="info-grid">
-        <div class="info-card" data-aos="fade-up">
-          <i class="fas fa-city"></i>
-          <h3>Bengaluru HQ</h3>
-          <p><strong>Siju Thomas Daniel</strong><br>Managing Trustee</p>
-          <p style="margin-top: 8px;"><i class="fas fa-phone" style="font-size: 0.85rem; margin-right: 6px;"></i> +91 9845222812</p>
-          <p><i class="fas fa-envelope" style="font-size: 0.85rem; margin-right: 6px;"></i> contact@sceadfoundation.org</p>
+      <div class="branch-grid">
+        <div class="branch-card" data-aos="fade-up">
+          <div class="branch-icon"><i class="fas fa-building"></i></div>
+          <h3>Bengaluru — Headquarters</h3>
+          <div class="branch-lead">Siju Thomas Daniel, Managing Trustee</div>
+          <p>#293, 4th Floor, 15th Cross Road, 5th Main Rd, 5th Phase, J.P. Nagar, Bengaluru 560078</p>
+          <div class="contact-line"><i class="fas fa-phone"></i> +91 98452 22812 / 080 2668 6812</div>
+          <div class="contact-line"><i class="fas fa-envelope"></i> contact@sceadfoundation.org</div>
         </div>
-        <div class="info-card" data-aos="fade-up" data-aos-delay="100">
-          <i class="fas fa-city"></i>
+        <div class="branch-card" data-aos="fade-up" data-aos-delay="100">
+          <div class="branch-icon"><i class="fas fa-city"></i></div>
           <h3>Mumbai Office</h3>
-          <p><strong>Mayur Bansode</strong></p>
-          <p style="margin-top: 8px;"><i class="fas fa-map-marker-alt" style="font-size: 0.85rem; margin-right: 6px;"></i> Social Nagar, M.G. Road, Sion-Dharavi, Mumbai 400022</p>
+          <div class="branch-lead">Mayur Bansode</div>
+          <p>Social Nagar, M.G. Road, Sion — Dharavi, Mumbai 400022</p>
+          <div class="contact-line"><i class="fas fa-envelope"></i> sceadfoundation@gmail.com</div>
         </div>
-        <div class="info-card" data-aos="fade-up" data-aos-delay="200">
-          <i class="fas fa-city"></i>
+        <div class="branch-card" data-aos="fade-up" data-aos-delay="200">
+          <div class="branch-icon"><i class="fas fa-map-pin"></i></div>
           <h3>Chandigarh Branch</h3>
-          <p><strong>Prof. Mohit Verma</strong><br>Vice President</p>
-          <p style="margin-top: 8px;"><i class="fas fa-envelope" style="font-size: 0.85rem; margin-right: 6px;"></i> contactchandigarh@sceadfoundation.org</p>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- Additional Info -->
-  <section class="section" id="additional-info">
-    <div class="container">
-      <div class="form-grid">
-        <!-- Office Hours -->
-        <div class="info-card" data-aos="fade-up" style="text-align: left;">
-          <i class="fas fa-clock" style="margin-bottom: 12px;"></i>
-          <h3>Office Hours</h3>
-          <p style="margin-bottom: 8px;"><strong>Monday to Saturday</strong><br>10:00 AM - 6:00 PM</p>
-          <p>Closed on Sundays and public holidays.</p>
-        </div>
-
-        <!-- Connect Online -->
-        <div class="info-card" data-aos="fade-up" data-aos-delay="100" style="text-align: left;">
-          <i class="fas fa-globe" style="margin-bottom: 12px;"></i>
-          <h3>Connect Online</h3>
-          <p style="margin-bottom: 6px;"><i class="fas fa-link" style="font-size: 0.85rem; margin-right: 6px;"></i> <a href="https://www.sceadfoundationindia.org" target="_blank" rel="noopener">www.sceadfoundationindia.org</a></p>
-          <p style="margin-bottom: 12px;"><i class="fas fa-blog" style="font-size: 0.85rem; margin-right: 6px;"></i> <a href="https://www.sceadfoundation.blogspot.in" target="_blank" rel="noopener">www.sceadfoundation.blogspot.in</a></p>
-          <div style="display: flex; gap: 14px; margin-top: 10px;">
-            <a href="#" aria-label="Facebook" style="font-size: 1.4rem; color: var(--primary);"><i class="fab fa-facebook-f"></i></a>
-            <a href="#" aria-label="Instagram" style="font-size: 1.4rem; color: var(--primary);"><i class="fab fa-instagram"></i></a>
-            <a href="#" aria-label="Twitter" style="font-size: 1.4rem; color: var(--primary);"><i class="fab fa-twitter"></i></a>
-            <a href="#" aria-label="YouTube" style="font-size: 1.4rem; color: var(--primary);"><i class="fab fa-youtube"></i></a>
-          </div>
+          <div class="branch-lead">Prof. Mohit Verma, Vice President</div>
+          <p>Leading educational and community initiatives across northern India</p>
+          <div class="contact-line"><i class="fas fa-envelope"></i> contactchandigarh@sceadfoundation.org</div>
         </div>
       </div>
     </div>
   </section>
 
   <!-- Footer -->
-  <footer class="footer" id="contact-footer">
+  <footer class="footer">
     <div class="container">
       <div class="footer-grid">
         <div class="footer-about">
           <div class="logo" style="margin-bottom: 16px;">
             <div class="logo-icon">SF</div>
-            <div class="logo-text">
-              <span>SCEAD</span>
-              <span>Foundation India</span>
-            </div>
+            <div class="logo-text"><span>SCEAD</span><span>Foundation India</span></div>
           </div>
-          <p>Space for Children in Education, Art and Development — empowering communities since 1998 through education, environment, and sustainable development.</p>
+          <p>Space for Children in Education, Art and Development — empowering communities since 1998.</p>
           <div class="reg-info">Reg. No: GAN-04-00209 | 80G Reg: AAITS0428E25BL02 | 12A: AAITS0428E25BL01 | CSR-1 Verified</div>
         </div>
         <div class="footer-links">
@@ -221,19 +286,19 @@
           <a href="csr.html">CSR Partnership</a>
           <a href="volunteer.html">Volunteer</a>
           <a href="contact.html">Contact</a>
-        <a href="art-gallery.html">Art Gallery</a>
+          <a href="art-gallery.html">Art Gallery</a>
         </div>
         <div class="footer-links">
           <h4>Programs</h4>
           <a href="programs.html#environment">Environment</a>
           <a href="programs.html#education">Education</a>
+          <a href="programs.html#hiv-home">Snehalaya Home</a>
           <a href="programs.html#community">Community Dev.</a>
           <a href="programs.html#elderly">Elderly Care</a>
-          <a href="programs.html#women">Women Empowerment</a>
         </div>
         <div class="footer-contact">
           <h4>Contact Us</h4>
-          <p><i class="fas fa-map-marker-alt"></i> #293, 4th Floor, 15th Cross Road, 5th Main Rd, 5th Phase, J.P. Nagar, Bengaluru, Karnataka 560078</p>
+          <p><i class="fas fa-map-marker-alt"></i> J.P. Nagar 5th Phase, Bengaluru 560078</p>
           <p><i class="fas fa-phone"></i> +91 9845222812</p>
           <p><i class="fas fa-envelope"></i> contact@sceadfoundation.org</p>
           <div class="footer-social">
@@ -244,19 +309,12 @@
           </div>
         </div>
       </div>
-      <div class="footer-bottom">
-        &copy; 2026 SCEAD Foundation India. All Rights Reserved.
-      </div>
+      <div class="footer-bottom">&copy; 2026 SCEAD Foundation India. All Rights Reserved.</div>
     </div>
   </footer>
 
-  <!-- Back to Top -->
   <button class="back-to-top" aria-label="Back to top"><i class="fas fa-chevron-up"></i></button>
-
-    <!-- WhatsApp Float -->
   <a href="https://wa.me/919845222812?text=Hello%20SCEAD%20Foundation!%20I%20visited%20your%20website%20and%20would%20love%20to%20know%20more%20about%20your%20work.%20How%20can%20I%20contribute%3F" target="_blank" rel="noopener" class="whatsapp-float" aria-label="Chat on WhatsApp"><i class="fab fa-whatsapp"></i></a>
-
-  <!-- Mobile Donate Float -->
   <a href="#donate" class="donate-float"><i class="fas fa-heart"></i> Donate Now</a>
 
   <script src="scripts.js"></script>
