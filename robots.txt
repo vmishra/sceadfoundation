@@ -1,0 +1,32 @@
+# SCEAD Foundation India — robots.txt
+# We welcome all search engines and AI crawlers
+
+User-agent: *
+Allow: /
+
+# AI Crawlers — explicitly welcome
+User-agent: GPTBot
+Allow: /
+
+User-agent: ChatGPT-User
+Allow: /
+
+User-agent: Google-Extended
+Allow: /
+
+User-agent: Claude-Web
+Allow: /
+
+User-agent: Anthropic-AI
+Allow: /
+
+User-agent: PerplexityBot
+Allow: /
+
+User-agent: Cohere-AI
+Allow: /
+
+User-agent: Applebot-Extended
+Allow: /
+
+Sitemap: https://vmishra.github.io/sceadfoundation/sitemap.xml
