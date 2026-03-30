@@ -3,13 +3,119 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta name="description" content="Volunteer or intern with SCEAD Foundation India — join plantation drives, education support, community outreach, and more. Open to students, professionals, and international volunteers.">
+  <meta name="description" content="Volunteer or intern with SCEAD Foundation India — 300+ volunteers from 17 countries. Join plantation drives, education, community outreach, healthcare, and more.">
   <title>Volunteer &amp; Intern — SCEAD Foundation India</title>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
   <link rel="stylesheet" href="styles.css">
+  <style>
+    .stat-strip {
+      display: grid; grid-template-columns: repeat(4, 1fr); gap: 24px; margin-bottom: 50px;
+    }
+    .stat-pill {
+      background: var(--white); padding: 24px; border-radius: var(--radius); box-shadow: var(--shadow);
+      text-align: center; transition: all var(--transition);
+    }
+    .stat-pill:hover { transform: translateY(-4px); box-shadow: var(--shadow-lg); }
+    .stat-pill .big { font-size: 2rem; font-weight: 800; line-height: 1; }
+    .stat-pill:nth-child(1) .big { color: var(--primary); }
+    .stat-pill:nth-child(2) .big { color: var(--secondary); }
+    .stat-pill:nth-child(3) .big { color: #8B5CF6; }
+    .stat-pill:nth-child(4) .big { color: #10B981; }
+    .stat-pill .lbl { font-size: 0.82rem; color: var(--gray-600); margin-top: 4px; }
+
+    .why-list { display: flex; flex-direction: column; gap: 14px; }
+    .why-item {
+      display: flex; align-items: flex-start; gap: 14px; padding: 14px 18px;
+      background: var(--white); border-radius: 10px; box-shadow: 0 2px 8px rgba(0,0,0,0.04);
+      transition: all var(--transition);
+    }
+    .why-item:hover { box-shadow: var(--shadow); transform: translateX(4px); }
+    .why-item i { color: var(--primary); font-size: 1rem; margin-top: 3px; flex-shrink: 0; }
+    .why-item p { font-size: 0.93rem; color: var(--dark-text); line-height: 1.5; }
+
+    .opp-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 24px; }
+    .opp-card {
+      background: var(--white); padding: 30px 24px; border-radius: var(--radius); box-shadow: var(--shadow);
+      transition: all var(--transition); position: relative; overflow: hidden;
+    }
+    .opp-card::before { content:''; position:absolute; top:0; left:0; width:100%; height:4px; }
+    .opp-card:nth-child(1)::before { background: #10B981; }
+    .opp-card:nth-child(2)::before { background: #3B82F6; }
+    .opp-card:nth-child(3)::before { background: #8B5CF6; }
+    .opp-card:nth-child(4)::before { background: #F59E0B; }
+    .opp-card:nth-child(5)::before { background: #EC4899; }
+    .opp-card:nth-child(6)::before { background: #EF4444; }
+    .opp-card:nth-child(7)::before { background: var(--primary); }
+    .opp-card:hover { transform: translateY(-5px); box-shadow: var(--shadow-lg); }
+    .opp-card i { font-size: 1.8rem; margin-bottom: 14px; }
+    .opp-card:nth-child(1) i { color: #10B981; }
+    .opp-card:nth-child(2) i { color: #3B82F6; }
+    .opp-card:nth-child(3) i { color: #8B5CF6; }
+    .opp-card:nth-child(4) i { color: #F59E0B; }
+    .opp-card:nth-child(5) i { color: #EC4899; }
+    .opp-card:nth-child(6) i { color: #EF4444; }
+    .opp-card:nth-child(7) i { color: var(--primary); }
+    .opp-card h3 { font-size: 1.05rem; margin-bottom: 8px; }
+    .opp-card p { font-size: 0.88rem; color: var(--gray-600); line-height: 1.6; }
+
+    .intern-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 40px; align-items: center; }
+    .intern-features { display: grid; grid-template-columns: 1fr 1fr; gap: 14px; }
+    .intern-feat {
+      display: flex; align-items: center; gap: 10px; padding: 14px 16px;
+      background: var(--white); border-radius: 10px; box-shadow: 0 2px 8px rgba(0,0,0,0.04);
+      font-size: 0.9rem; color: var(--dark-text); font-weight: 500;
+    }
+    .intern-feat i { color: var(--primary); flex-shrink: 0; }
+
+    .testimonial-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 24px; }
+    .testimonial-card {
+      background: var(--white); padding: 32px 28px; border-radius: var(--radius); box-shadow: var(--shadow);
+      text-align: center; transition: all var(--transition); position: relative;
+    }
+    .testimonial-card:hover { transform: translateY(-5px); box-shadow: var(--shadow-lg); }
+    .testimonial-card .quote-icon { font-size: 1.8rem; margin-bottom: 16px; }
+    .testimonial-card:nth-child(1) .quote-icon { color: var(--primary); }
+    .testimonial-card:nth-child(2) .quote-icon { color: var(--secondary); }
+    .testimonial-card:nth-child(3) .quote-icon { color: #8B5CF6; }
+    .testimonial-card p { font-style: italic; color: var(--gray-600); line-height: 1.8; margin-bottom: 18px; font-size: 0.92rem; }
+    .testimonial-card .author { font-weight: 700; color: var(--dark); font-size: 0.9rem; }
+    .testimonial-card .origin { color: var(--primary); font-size: 0.82rem; font-weight: 500; }
+
+    .flag-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(155px, 1fr)); gap: 14px; }
+    .flag-card {
+      background: var(--white); padding: 14px 14px; border-radius: 10px; box-shadow: 0 2px 8px rgba(0,0,0,0.05);
+      display: flex; align-items: center; gap: 12px; transition: all var(--transition);
+    }
+    .flag-card:hover { transform: translateY(-3px); box-shadow: var(--shadow); }
+    .flag-emoji { font-size: 1.5rem; line-height: 1; }
+    .flag-card .country-name { font-size: 0.85rem; font-weight: 600; color: var(--dark); }
+    .flag-card .coord { font-size: 0.72rem; color: var(--gray-600); margin-top: 1px; }
+
+    .yoga-banner {
+      background: linear-gradient(135deg, #f3e8ff, #e0f2fe); padding: 40px; border-radius: var(--radius);
+      display: flex; align-items: center; gap: 30px; margin-top: 50px;
+    }
+    .yoga-banner i { font-size: 3rem; color: #8B5CF6; flex-shrink: 0; }
+    .yoga-banner h3 { margin-bottom: 6px; }
+    .yoga-banner p { color: var(--gray-600); font-size: 0.95rem; line-height: 1.7; }
+
+    .form-card { background: var(--white); padding: 40px; border-radius: var(--radius); box-shadow: var(--shadow-lg); max-width: 800px; margin: 0 auto; }
+
+    @media (max-width: 992px) {
+      .stat-strip { grid-template-columns: repeat(2, 1fr); }
+      .intern-grid { grid-template-columns: 1fr; }
+      .testimonial-grid { grid-template-columns: 1fr; }
+      .intern-features { grid-template-columns: 1fr; }
+    }
+    @media (max-width: 480px) {
+      .stat-strip { grid-template-columns: 1fr; }
+      .yoga-banner { flex-direction: column; text-align: center; }
+      .form-card { padding: 24px 20px; }
+    }
+  </style>
 </head>
 <body>
 
@@ -18,10 +124,7 @@
     <div class="container">
       <a href="index.html" class="logo" aria-label="SCEAD Foundation Home">
         <div class="logo-icon">SF</div>
-        <div class="logo-text">
-          <span>SCEAD</span>
-          <span>Foundation India</span>
-        </div>
+        <div class="logo-text"><span>SCEAD</span><span>Foundation India</span></div>
       </a>
       <div class="nav-links" id="navLinks">
         <a href="index.html">Home</a>
@@ -42,344 +145,282 @@
   <!-- Page Hero -->
   <section class="page-hero">
     <div class="container">
+      <div class="breadcrumb" data-aos="fade-up"><a href="index.html">Home</a> / <span>Volunteer</span></div>
       <h1 data-aos="fade-up">Volunteer &amp; Intern</h1>
-      <p data-aos="fade-up" data-aos-delay="100">Be part of the change — join SCEAD Foundation as a volunteer or intern.</p>
-      <div class="breadcrumb" data-aos="fade-up" data-aos-delay="200">
-        <a href="index.html">Home</a>
-        <span>/</span>
-        <span>Volunteer</span>
-      </div>
+      <p data-aos="fade-up" data-aos-delay="100">Be part of 25+ years of grassroots change — from Bengaluru to Bandipur, Bihar to Shillong.</p>
     </div>
   </section>
 
-  <!-- Why Volunteer With Us -->
+  <!-- Quick Stats -->
   <section class="section" id="why-volunteer">
     <div class="container">
+      <div class="stat-strip" data-aos="fade-up">
+        <div class="stat-pill"><div class="big">300+</div><div class="lbl">International Volunteers</div></div>
+        <div class="stat-pill"><div class="big">17</div><div class="lbl">Countries Represented</div></div>
+        <div class="stat-pill"><div class="big">7</div><div class="lbl">Ways to Contribute</div></div>
+        <div class="stat-pill"><div class="big">25+</div><div class="lbl">Years of Impact</div></div>
+      </div>
+
       <div class="about-grid">
         <div class="about-image" data-aos="fade-right">
-          <img src="images/volunteer-children.jpg" alt="SCEAD Foundation volunteer working with children" loading="lazy">
+          <img src="images/volunteer-children.jpg" alt="SCEAD Foundation volunteers with children" loading="lazy">
         </div>
-        <div class="about-cards" data-aos="fade-left">
-          <div class="section-header" style="text-align:left;">
-            <h2>Why Volunteer With Us</h2>
+        <div data-aos="fade-left">
+          <div class="section-header" style="text-align:left;"><h2>Why Volunteer With Us</h2></div>
+          <div class="why-list">
+            <div class="why-item"><i class="fas fa-check-circle"></i><p>Join 300+ volunteers from Poland, Germany, USA, Bahrain, Brazil, Australia, and 11 more countries</p></div>
+            <div class="why-item"><i class="fas fa-check-circle"></i><p>Work directly with tribal communities, government schools, and grassroots projects</p></div>
+            <div class="why-item"><i class="fas fa-check-circle"></i><p>Hands-on experience in sustainable development, education, and community work</p></div>
+            <div class="why-item"><i class="fas fa-check-circle"></i><p>Dedicated country coordinators help international volunteers plan their stay</p></div>
+            <div class="why-item"><i class="fas fa-check-circle"></i><p>Flexible: weekend drives, 1-6 month placements, or remote support</p></div>
           </div>
-          <ul style="color: var(--gray-600); font-size: 1.02rem; line-height: 2.2; list-style: none; padding: 0;">
-            <li><i class="fas fa-check-circle" style="color: var(--primary); margin-right: 10px;"></i> Join a community of 300+ international volunteers from 15+ countries including Poland, Germany, England, USA, Egypt, China, Bahrain, Austria, Switzerland, Czech Republic, Netherlands, Sweden, Brazil, Russia, Singapore, Taiwan, Australia, Turkey, and Albania</li>
-            <li><i class="fas fa-check-circle" style="color: var(--primary); margin-right: 10px;"></i> Work directly with tribal communities, schools, and grassroots projects</li>
-            <li><i class="fas fa-check-circle" style="color: var(--primary); margin-right: 10px;"></i> Gain hands-on experience in sustainable development, education, and community work</li>
-            <li><i class="fas fa-check-circle" style="color: var(--primary); margin-right: 10px;"></i> International volunteers welcome — dedicated country coordinators help you plan your stay</li>
-            <li><i class="fas fa-check-circle" style="color: var(--primary); margin-right: 10px;"></i> Flexible volunteering: short-term drives, long-term placements, or remote support</li>
-          </ul>
         </div>
       </div>
     </div>
   </section>
 
-  <!-- Volunteering Opportunities -->
+  <!-- Opportunities -->
   <section class="section section-alt" id="opportunities">
     <div class="container">
       <div class="section-header" data-aos="fade-up">
-        <h2>Volunteering Opportunities</h2>
-        <p>Find the right way to contribute your time and skills to meaningful, community-driven work.</p>
+        <h2>7 Ways to Contribute</h2>
+        <p>Find the right way to use your skills for meaningful, community-driven work.</p>
       </div>
-      <div class="info-grid">
-        <div class="info-card" data-aos="fade-up">
+      <div class="opp-grid">
+        <div class="opp-card" data-aos="fade-up">
           <i class="fas fa-chalkboard-teacher"></i>
           <h3>Education</h3>
-          <p>Teach local students, share talents in music, sports, crafts and arts. Train teachers, assist in classrooms, teach languages, and create awareness on child labor and social issues.</p>
+          <p>Teach students, share music/sports/arts, train teachers, teach languages, create child labor awareness.</p>
         </div>
-        <div class="info-card" data-aos="fade-up" data-aos-delay="100">
+        <div class="opp-card" data-aos="fade-up" data-aos-delay="100">
           <i class="fas fa-seedling"></i>
-          <h3>Agriculture &amp; Environment</h3>
-          <p>Plant trees, develop rural farming practices, and participate in plantation drives across Bengaluru, Shillong, and Metur Dam.</p>
+          <h3>Environment</h3>
+          <p>Plant trees across Bengaluru, Shillong, and Metur Dam. Rural farming, seed ball making, lake restoration.</p>
         </div>
-        <div class="info-card" data-aos="fade-up" data-aos-delay="200">
-          <i class="fas fa-laptop"></i>
+        <div class="opp-card" data-aos="fade-up" data-aos-delay="200">
+          <i class="fas fa-laptop-code"></i>
           <h3>Web &amp; Marketing</h3>
-          <p>Improve the website, coordinate online promotion, manage blog and social media, and write articles about SCEAD activities.</p>
+          <p>Website improvement, social media, blog writing, online campaigns, and digital outreach.</p>
         </div>
-        <div class="info-card" data-aos="fade-up" data-aos-delay="300">
-          <i class="fas fa-hand-holding-usd"></i>
+        <div class="opp-card" data-aos="fade-up">
+          <i class="fas fa-hand-holding-dollar"></i>
           <h3>Fundraising</h3>
-          <p>Raise funds for the foundation, identify sponsors and corporate partners for CSR initiatives.</p>
+          <p>Raise funds, identify sponsors, write grant proposals, and build corporate CSR partnerships.</p>
         </div>
-        <div class="info-card" data-aos="fade-up" data-aos-delay="400">
+        <div class="opp-card" data-aos="fade-up" data-aos-delay="100">
           <i class="fas fa-people-carry-box"></i>
           <h3>Community Outreach</h3>
-          <p>Participate in tribal village visits, elderly care, sanitation campaigns, and Shoes &amp; Smiles distribution drives.</p>
+          <p>Tribal village visits, elderly care, sanitation campaigns, Shoes &amp; Smiles drives, slum meal distribution.</p>
         </div>
-        <div class="info-card" data-aos="fade-up" data-aos-delay="500">
-          <i class="fas fa-paint-brush"></i>
+        <div class="opp-card" data-aos="fade-up" data-aos-delay="200">
+          <i class="fas fa-palette"></i>
           <h3>Creative Arts</h3>
-          <p>Paint and decorate school buildings, create video presentations of SCEAD projects, and organize art workshops for children.</p>
+          <p>Paint school buildings, video documentation, art workshops for children, photography for impact reports.</p>
         </div>
-        <div class="info-card" data-aos="fade-up" data-aos-delay="600">
+        <div class="opp-card" data-aos="fade-up">
           <i class="fas fa-heart-pulse"></i>
-          <h3>Healthcare Support</h3>
-          <p>Support health screening camps, cancer awareness programs, HIV home visits, and distribute soap and sanitizer in communities.</p>
+          <h3>Healthcare</h3>
+          <p>Health screening camps, cancer awareness, HIV home visits, soap/sanitizer distribution in communities.</p>
         </div>
       </div>
     </div>
   </section>
 
-  <!-- Internship Program -->
+  <!-- Internship -->
   <section class="section" id="internship">
     <div class="container">
       <div class="section-header" data-aos="fade-up">
         <h2>Internship Program</h2>
-        <p>Gain real-world experience while making a tangible difference in the lives of India's most underserved communities.</p>
+        <p>Real-world experience with measurable community impact. Certificate provided.</p>
       </div>
-      <div class="about-grid">
-        <div class="about-cards" data-aos="fade-right">
-          <ul style="color: var(--gray-600); font-size: 1.02rem; line-height: 2.2; list-style: none; padding: 0;">
-            <li><i class="fas fa-check-circle" style="color: var(--primary); margin-right: 10px;"></i> Open to college students and young professionals</li>
-            <li><i class="fas fa-check-circle" style="color: var(--primary); margin-right: 10px;"></i> Duration: 1-6 months (flexible)</li>
-            <li><i class="fas fa-check-circle" style="color: var(--primary); margin-right: 10px;"></i> Areas: Social work, environmental studies, public health, communications, fundraising</li>
-            <li><i class="fas fa-check-circle" style="color: var(--primary); margin-right: 10px;"></i> Certificate of completion provided</li>
-            <li><i class="fas fa-check-circle" style="color: var(--primary); margin-right: 10px;"></i> Opportunity to work on real projects with measurable community impact</li>
-            <li><i class="fas fa-check-circle" style="color: var(--primary); margin-right: 10px;"></i> Past interns have contributed to plantation drives, school programs, and CSR documentation</li>
-          </ul>
+      <div class="intern-grid">
+        <div data-aos="fade-right">
+          <div class="intern-features">
+            <div class="intern-feat"><i class="fas fa-user-graduate"></i> College students &amp; young professionals</div>
+            <div class="intern-feat"><i class="fas fa-calendar-days"></i> 1–6 months (flexible)</div>
+            <div class="intern-feat"><i class="fas fa-certificate"></i> Certificate of completion</div>
+            <div class="intern-feat"><i class="fas fa-briefcase"></i> Real measurable projects</div>
+            <div class="intern-feat"><i class="fas fa-leaf"></i> Environment &amp; social work</div>
+            <div class="intern-feat"><i class="fas fa-bullhorn"></i> Communications &amp; fundraising</div>
+            <div class="intern-feat"><i class="fas fa-stethoscope"></i> Public health focus areas</div>
+            <div class="intern-feat"><i class="fas fa-file-lines"></i> CSR documentation support</div>
+          </div>
         </div>
         <div class="about-image" data-aos="fade-left">
-          <img src="images/community-gathering.jpg" alt="SCEAD Foundation internship and community work" loading="lazy">
+          <img src="images/community-gathering.jpg" alt="SCEAD Foundation internship program" loading="lazy">
         </div>
       </div>
     </div>
   </section>
 
-  <!-- Volunteer Stories / Testimonials -->
+  <!-- Testimonials -->
   <section class="section section-alt" id="testimonials">
     <div class="container">
       <div class="section-header" data-aos="fade-up">
         <h2>Volunteer Stories</h2>
-        <p>Hear from volunteers and interns who have been part of the SCEAD Foundation journey.</p>
+        <p>Real experiences from volunteers who've been part of the SCEAD journey.</p>
       </div>
-      <div class="focus-grid">
-        <div class="focus-card" data-aos="fade-up" style="text-align: center;">
-          <div class="focus-card-body">
-            <i class="fas fa-quote-left" style="font-size: 2rem; color: var(--primary); margin-bottom: 16px;"></i>
-            <p style="font-style: italic; color: var(--gray-600); line-height: 1.8; margin-bottom: 20px;">I was impressed since the first day with the high level of intelligence of the children. They have great potential for future leadership. Working with SCEAD opened my eyes to the power of grassroots education.</p>
-            <strong style="color: var(--dark);">— Mohamed Restam, Bahrain (age 21)</strong>
-          </div>
+      <div class="testimonial-grid">
+        <div class="testimonial-card" data-aos="fade-up">
+          <div class="quote-icon"><i class="fas fa-quote-left"></i></div>
+          <p>I was impressed since the first day with the high level of intelligence of the children. They have great potential for future leadership. Working with SCEAD opened my eyes to the power of grassroots education.</p>
+          <div class="author">Mohamed Restam</div>
+          <div class="origin">Bahrain, age 21</div>
         </div>
-        <div class="focus-card" data-aos="fade-up" data-aos-delay="150" style="text-align: center;">
-          <div class="focus-card-body">
-            <i class="fas fa-quote-left" style="font-size: 2rem; color: var(--primary); margin-bottom: 16px;"></i>
-            <p style="font-style: italic; color: var(--gray-600); line-height: 1.8; margin-bottom: 20px;">My experience was overwhelming yet life-changing. The children's respect and eagerness to learn despite economic hardship was deeply moving. SCEAD Foundation creates real, tangible change.</p>
-            <strong style="color: var(--dark);">— Shayma, Bahrain</strong>
-          </div>
+        <div class="testimonial-card" data-aos="fade-up" data-aos-delay="100">
+          <div class="quote-icon"><i class="fas fa-quote-left"></i></div>
+          <p>My experience was overwhelming yet life-changing. The children's respect and eagerness to learn despite economic hardship was deeply moving. SCEAD Foundation creates real, tangible change.</p>
+          <div class="author">Shayma</div>
+          <div class="origin">Bahrain</div>
         </div>
-        <div class="focus-card" data-aos="fade-up" data-aos-delay="300" style="text-align: center;">
-          <div class="focus-card-body">
-            <i class="fas fa-quote-left" style="font-size: 2rem; color: var(--primary); margin-bottom: 16px;"></i>
-            <p style="font-style: italic; color: var(--gray-600); line-height: 1.8; margin-bottom: 20px;">I spent nearly one month working with the foundation. The Save Girl Child project particularly moved me — it helped shift my entire perspective toward volunteering and social impact.</p>
-            <strong style="color: var(--dark);">— Fatima Shaker, Bahrain</strong>
-          </div>
+        <div class="testimonial-card" data-aos="fade-up" data-aos-delay="200">
+          <div class="quote-icon"><i class="fas fa-quote-left"></i></div>
+          <p>I spent nearly one month working with the foundation. The Save Girl Child project particularly moved me — it helped shift my entire perspective toward volunteering and social impact.</p>
+          <div class="author">Fatima Shaker</div>
+          <div class="origin">Bahrain</div>
         </div>
       </div>
     </div>
   </section>
 
-  <!-- Global Volunteer Network -->
+  <!-- Global Network -->
   <section class="section" id="global-network">
     <div class="container">
       <div class="section-header" data-aos="fade-up">
-        <h2>Our Global Volunteer Network</h2>
-        <p>SCEAD Foundation has volunteer coordinators across 15+ countries.</p>
+        <h2>Global Volunteer Network</h2>
+        <p>Coordinators across 16 countries ready to help you join SCEAD's mission.</p>
       </div>
-      <div style="display: grid; grid-template-columns: repeat(auto-fill, minmax(220px, 1fr)); gap: 16px; max-width: 1000px; margin: 0 auto;" data-aos="fade-up" data-aos-delay="100">
-        <div style="background: var(--white); border-radius: 10px; padding: 16px 20px; box-shadow: 0 2px 8px rgba(0,0,0,0.06); border-left: 3px solid var(--primary);" data-aos="fade-up">
-          <strong style="color: var(--dark); font-size: 0.95rem;"><i class="fas fa-globe" style="color: var(--primary); margin-right: 6px;"></i>Poland</strong>
-          <p style="color: var(--gray-600); font-size: 0.85rem; margin: 4px 0 0;">Camela</p>
-        </div>
-        <div style="background: var(--white); border-radius: 10px; padding: 16px 20px; box-shadow: 0 2px 8px rgba(0,0,0,0.06); border-left: 3px solid var(--primary);" data-aos="fade-up">
-          <strong style="color: var(--dark); font-size: 0.95rem;"><i class="fas fa-globe" style="color: var(--primary); margin-right: 6px;"></i>Germany</strong>
-          <p style="color: var(--gray-600); font-size: 0.85rem; margin: 4px 0 0;">Laila Kirchner / Thorsten</p>
-        </div>
-        <div style="background: var(--white); border-radius: 10px; padding: 16px 20px; box-shadow: 0 2px 8px rgba(0,0,0,0.06); border-left: 3px solid var(--primary);" data-aos="fade-up">
-          <strong style="color: var(--dark); font-size: 0.95rem;"><i class="fas fa-globe" style="color: var(--primary); margin-right: 6px;"></i>Austria</strong>
-          <p style="color: var(--gray-600); font-size: 0.85rem; margin: 4px 0 0;">Steve Gander</p>
-        </div>
-        <div style="background: var(--white); border-radius: 10px; padding: 16px 20px; box-shadow: 0 2px 8px rgba(0,0,0,0.06); border-left: 3px solid var(--primary);" data-aos="fade-up">
-          <strong style="color: var(--dark); font-size: 0.95rem;"><i class="fas fa-globe" style="color: var(--primary); margin-right: 6px;"></i>Switzerland</strong>
-          <p style="color: var(--gray-600); font-size: 0.85rem; margin: 4px 0 0;">Jennifer Kappeler</p>
-        </div>
-        <div style="background: var(--white); border-radius: 10px; padding: 16px 20px; box-shadow: 0 2px 8px rgba(0,0,0,0.06); border-left: 3px solid var(--primary);" data-aos="fade-up">
-          <strong style="color: var(--dark); font-size: 0.95rem;"><i class="fas fa-globe" style="color: var(--primary); margin-right: 6px;"></i>Czech Republic</strong>
-          <p style="color: var(--gray-600); font-size: 0.85rem; margin: 4px 0 0;">Michal Marczynski</p>
-        </div>
-        <div style="background: var(--white); border-radius: 10px; padding: 16px 20px; box-shadow: 0 2px 8px rgba(0,0,0,0.06); border-left: 3px solid var(--primary);" data-aos="fade-up">
-          <strong style="color: var(--dark); font-size: 0.95rem;"><i class="fas fa-globe" style="color: var(--primary); margin-right: 6px;"></i>Netherlands</strong>
-          <p style="color: var(--gray-600); font-size: 0.85rem; margin: 4px 0 0;">&Oslash;ystein Tandberg</p>
-        </div>
-        <div style="background: var(--white); border-radius: 10px; padding: 16px 20px; box-shadow: 0 2px 8px rgba(0,0,0,0.06); border-left: 3px solid var(--primary);" data-aos="fade-up">
-          <strong style="color: var(--dark); font-size: 0.95rem;"><i class="fas fa-globe" style="color: var(--primary); margin-right: 6px;"></i>Sweden</strong>
-          <p style="color: var(--gray-600); font-size: 0.85rem; margin: 4px 0 0;">Sara Jochheim Englund / Britta Lindahl / Biggi Vinkeloe</p>
-        </div>
-        <div style="background: var(--white); border-radius: 10px; padding: 16px 20px; box-shadow: 0 2px 8px rgba(0,0,0,0.06); border-left: 3px solid var(--primary);" data-aos="fade-up">
-          <strong style="color: var(--dark); font-size: 0.95rem;"><i class="fas fa-globe" style="color: var(--primary); margin-right: 6px;"></i>USA</strong>
-          <p style="color: var(--gray-600); font-size: 0.85rem; margin: 4px 0 0;">Jina Graham / Rajini &amp; Noel</p>
-        </div>
-        <div style="background: var(--white); border-radius: 10px; padding: 16px 20px; box-shadow: 0 2px 8px rgba(0,0,0,0.06); border-left: 3px solid var(--primary);" data-aos="fade-up">
-          <strong style="color: var(--dark); font-size: 0.95rem;"><i class="fas fa-globe" style="color: var(--primary); margin-right: 6px;"></i>Brazil</strong>
-          <p style="color: var(--gray-600); font-size: 0.85rem; margin: 4px 0 0;">Maricelson Bareto &amp; Rose</p>
-        </div>
-        <div style="background: var(--white); border-radius: 10px; padding: 16px 20px; box-shadow: 0 2px 8px rgba(0,0,0,0.06); border-left: 3px solid var(--primary);" data-aos="fade-up">
-          <strong style="color: var(--dark); font-size: 0.95rem;"><i class="fas fa-globe" style="color: var(--primary); margin-right: 6px;"></i>Russia</strong>
-          <p style="color: var(--gray-600); font-size: 0.85rem; margin: 4px 0 0;">Sergei Dvorianov</p>
-        </div>
-        <div style="background: var(--white); border-radius: 10px; padding: 16px 20px; box-shadow: 0 2px 8px rgba(0,0,0,0.06); border-left: 3px solid var(--primary);" data-aos="fade-up">
-          <strong style="color: var(--dark); font-size: 0.95rem;"><i class="fas fa-globe" style="color: var(--primary); margin-right: 6px;"></i>Singapore</strong>
-          <p style="color: var(--gray-600); font-size: 0.85rem; margin: 4px 0 0;">Kathy Xu Wei En / Sonia Bodani</p>
-        </div>
-        <div style="background: var(--white); border-radius: 10px; padding: 16px 20px; box-shadow: 0 2px 8px rgba(0,0,0,0.06); border-left: 3px solid var(--primary);" data-aos="fade-up">
-          <strong style="color: var(--dark); font-size: 0.95rem;"><i class="fas fa-globe" style="color: var(--primary); margin-right: 6px;"></i>Taiwan</strong>
-          <p style="color: var(--gray-600); font-size: 0.85rem; margin: 4px 0 0;">Riya Chien</p>
-        </div>
-        <div style="background: var(--white); border-radius: 10px; padding: 16px 20px; box-shadow: 0 2px 8px rgba(0,0,0,0.06); border-left: 3px solid var(--primary);" data-aos="fade-up">
-          <strong style="color: var(--dark); font-size: 0.95rem;"><i class="fas fa-globe" style="color: var(--primary); margin-right: 6px;"></i>Australia</strong>
-          <p style="color: var(--gray-600); font-size: 0.85rem; margin: 4px 0 0;">Nikhil Jha</p>
-        </div>
-        <div style="background: var(--white); border-radius: 10px; padding: 16px 20px; box-shadow: 0 2px 8px rgba(0,0,0,0.06); border-left: 3px solid var(--primary);" data-aos="fade-up">
-          <strong style="color: var(--dark); font-size: 0.95rem;"><i class="fas fa-globe" style="color: var(--primary); margin-right: 6px;"></i>Turkey</strong>
-          <p style="color: var(--gray-600); font-size: 0.85rem; margin: 4px 0 0;">Sumayya</p>
-        </div>
-        <div style="background: var(--white); border-radius: 10px; padding: 16px 20px; box-shadow: 0 2px 8px rgba(0,0,0,0.06); border-left: 3px solid var(--primary);" data-aos="fade-up">
-          <strong style="color: var(--dark); font-size: 0.95rem;"><i class="fas fa-globe" style="color: var(--primary); margin-right: 6px;"></i>Egypt</strong>
-          <p style="color: var(--gray-600); font-size: 0.85rem; margin: 4px 0 0;">Magdy</p>
-        </div>
-        <div style="background: var(--white); border-radius: 10px; padding: 16px 20px; box-shadow: 0 2px 8px rgba(0,0,0,0.06); border-left: 3px solid var(--primary);" data-aos="fade-up">
-          <strong style="color: var(--dark); font-size: 0.95rem;"><i class="fas fa-globe" style="color: var(--primary); margin-right: 6px;"></i>Albania</strong>
-          <p style="color: var(--gray-600); font-size: 0.85rem; margin: 4px 0 0;">&nbsp;</p>
+      <div class="flag-grid" data-aos="fade-up">
+        <div class="flag-card"><span class="flag-emoji">&#x1F1F5;&#x1F1F1;</span><div><div class="country-name">Poland</div><div class="coord">Camela</div></div></div>
+        <div class="flag-card"><span class="flag-emoji">&#x1F1E9;&#x1F1EA;</span><div><div class="country-name">Germany</div><div class="coord">Laila / Thorsten</div></div></div>
+        <div class="flag-card"><span class="flag-emoji">&#x1F1E6;&#x1F1F9;</span><div><div class="country-name">Austria</div><div class="coord">Steve Gander</div></div></div>
+        <div class="flag-card"><span class="flag-emoji">&#x1F1E8;&#x1F1ED;</span><div><div class="country-name">Switzerland</div><div class="coord">Jennifer Kappeler</div></div></div>
+        <div class="flag-card"><span class="flag-emoji">&#x1F1E8;&#x1F1FF;</span><div><div class="country-name">Czech Republic</div><div class="coord">Michal Marczynski</div></div></div>
+        <div class="flag-card"><span class="flag-emoji">&#x1F1F3;&#x1F1F1;</span><div><div class="country-name">Netherlands</div><div class="coord">Øystein Tandberg</div></div></div>
+        <div class="flag-card"><span class="flag-emoji">&#x1F1F8;&#x1F1EA;</span><div><div class="country-name">Sweden</div><div class="coord">Sara / Britta / Biggi</div></div></div>
+        <div class="flag-card"><span class="flag-emoji">&#x1F1FA;&#x1F1F8;</span><div><div class="country-name">USA</div><div class="coord">Jina Graham / Rajini</div></div></div>
+        <div class="flag-card"><span class="flag-emoji">&#x1F1E7;&#x1F1F7;</span><div><div class="country-name">Brazil</div><div class="coord">Maricelson &amp; Rose</div></div></div>
+        <div class="flag-card"><span class="flag-emoji">&#x1F1F7;&#x1F1FA;</span><div><div class="country-name">Russia</div><div class="coord">Sergei Dvorianov</div></div></div>
+        <div class="flag-card"><span class="flag-emoji">&#x1F1F8;&#x1F1EC;</span><div><div class="country-name">Singapore</div><div class="coord">Kathy / Sonia</div></div></div>
+        <div class="flag-card"><span class="flag-emoji">&#x1F1F9;&#x1F1FC;</span><div><div class="country-name">Taiwan</div><div class="coord">Riya Chien</div></div></div>
+        <div class="flag-card"><span class="flag-emoji">&#x1F1E6;&#x1F1FA;</span><div><div class="country-name">Australia</div><div class="coord">Nikhil Jha</div></div></div>
+        <div class="flag-card"><span class="flag-emoji">&#x1F1EA;&#x1F1EC;</span><div><div class="country-name">Egypt</div><div class="coord">Magdy</div></div></div>
+        <div class="flag-card"><span class="flag-emoji">&#x1F1F9;&#x1F1F7;</span><div><div class="country-name">Turkey</div><div class="coord">Sumayya</div></div></div>
+        <div class="flag-card"><span class="flag-emoji">&#x1F1E6;&#x1F1F1;</span><div><div class="country-name">Albania</div><div class="coord">&nbsp;</div></div></div>
+      </div>
+
+      <!-- Yoga Banner -->
+      <div class="yoga-banner" data-aos="fade-up">
+        <i class="fas fa-om"></i>
+        <div>
+          <h3>Yoga for International Students</h3>
+          <p>SCEAD Foundation offers Kundalini Yoga courses for international visitors. Practice yoga while contributing to community projects — spiritual growth meets social impact.</p>
         </div>
       </div>
     </div>
   </section>
 
-  <!-- Yoga for International Students -->
-  <section class="section section-alt" id="yoga">
+  <!-- Registration Form -->
+  <section class="section section-alt" id="volunteer-form">
     <div class="container">
       <div class="section-header" data-aos="fade-up">
-        <h2>Yoga for International Students</h2>
+        <h2>Join as a Volunteer</h2>
+        <p>Fill out the form and our team will connect with you within 48 hours.</p>
       </div>
-      <div style="max-width: 800px; margin: 0 auto; text-align: center;" data-aos="fade-up" data-aos-delay="100">
-        <i class="fas fa-om" style="font-size: 3rem; color: var(--primary); margin-bottom: 20px;"></i>
-        <p style="color: var(--gray-600); font-size: 1.05rem; line-height: 1.9;">SCEAD Foundation also offers Kundalini Yoga courses for international students visiting India. Students can practice yoga while contributing to community projects — a unique blend of spiritual growth and social impact.</p>
-      </div>
-    </div>
-  </section>
-
-  <!-- Volunteer Registration Form -->
-  <section class="section" id="volunteer-form">
-    <div class="container">
-      <div class="section-header" data-aos="fade-up">
-        <h2>Volunteer Registration</h2>
-        <p>Fill out the form below and our team will get in touch with you about volunteering or internship opportunities.</p>
-      </div>
-      <form action="#" method="POST" style="max-width: 800px; margin: 0 auto;" data-aos="fade-up" data-aos-delay="100">
-        <div class="form-grid">
-          <div class="form-group">
-            <label for="fullName">Full Name</label>
-            <input type="text" id="fullName" name="fullName" placeholder="Your full name" required>
+      <div class="form-card" data-aos="fade-up">
+        <form action="#" method="POST">
+          <div class="form-grid">
+            <div class="form-group">
+              <label for="fullName">Full Name</label>
+              <input type="text" id="fullName" name="fullName" placeholder="Your full name" required>
+            </div>
+            <div class="form-group">
+              <label for="email">Email</label>
+              <input type="email" id="email" name="email" placeholder="you@email.com" required>
+            </div>
           </div>
-          <div class="form-group">
-            <label for="email">Email</label>
-            <input type="email" id="email" name="email" placeholder="Your email address" required>
+          <div class="form-grid">
+            <div class="form-group">
+              <label for="phone">Phone</label>
+              <input type="tel" id="phone" name="phone" placeholder="+91 or international" required>
+            </div>
+            <div class="form-group">
+              <label for="age">Age Range</label>
+              <select id="age" name="age" required>
+                <option value="" disabled selected>Select</option>
+                <option>18–25</option><option>26–35</option><option>36–50</option><option>50+</option>
+              </select>
+            </div>
           </div>
-          <div class="form-group">
-            <label for="phone">Phone</label>
-            <input type="tel" id="phone" name="phone" placeholder="Your phone number" required>
-          </div>
-          <div class="form-group">
-            <label for="age">Age</label>
-            <select id="age" name="age" required>
-              <option value="" disabled selected>Select age range</option>
-              <option value="18-25">18-25</option>
-              <option value="26-35">26-35</option>
-              <option value="36-50">36-50</option>
-              <option value="50+">50+</option>
-            </select>
-          </div>
-          <div class="form-group">
-            <label for="occupation">Occupation</label>
-            <select id="occupation" name="occupation" required>
-              <option value="" disabled selected>Select occupation</option>
-              <option value="Student">Student</option>
-              <option value="Professional">Professional</option>
-              <option value="Retired">Retired</option>
-              <option value="Other">Other</option>
-            </select>
-          </div>
-          <div class="form-group">
-            <label for="interest">Area of Interest</label>
-            <select id="interest" name="interest" required>
-              <option value="" disabled selected>Select area of interest</option>
-              <option value="Education">Education</option>
-              <option value="Agriculture & Environment">Agriculture &amp; Environment</option>
-              <option value="Web & Marketing">Web &amp; Marketing</option>
-              <option value="Fundraising">Fundraising</option>
-              <option value="Community Outreach">Community Outreach</option>
-              <option value="Creative Arts">Creative Arts</option>
-              <option value="Healthcare Support">Healthcare Support</option>
-              <option value="Any">Any</option>
-            </select>
+          <div class="form-grid">
+            <div class="form-group">
+              <label for="occupation">Occupation</label>
+              <select id="occupation" name="occupation" required>
+                <option value="" disabled selected>Select</option>
+                <option>Student</option><option>Professional</option><option>Retired</option><option>Other</option>
+              </select>
+            </div>
+            <div class="form-group">
+              <label for="interest">Area of Interest</label>
+              <select id="interest" name="interest" required>
+                <option value="" disabled selected>Select</option>
+                <option>Education</option><option>Environment</option><option>Web &amp; Marketing</option>
+                <option>Fundraising</option><option>Community Outreach</option><option>Creative Arts</option>
+                <option>Healthcare</option><option>Any / Open</option>
+              </select>
+            </div>
           </div>
           <div class="form-group">
             <label for="availability">Availability</label>
             <select id="availability" name="availability" required>
-              <option value="" disabled selected>Select availability</option>
-              <option value="Weekdays">Weekdays</option>
-              <option value="Weekends">Weekends</option>
-              <option value="Full-time">Full-time</option>
-              <option value="Flexible">Flexible</option>
+              <option value="" disabled selected>Select</option>
+              <option>Weekends only</option><option>Weekdays</option><option>Full-time (1-6 months)</option><option>Remote / Virtual</option><option>Flexible</option>
             </select>
           </div>
-        </div>
-        <div class="form-group">
-          <label for="message">Why do you want to volunteer?</label>
-          <textarea id="message" name="message" placeholder="Tell us briefly about your motivation and what you hope to contribute..." rows="5"></textarea>
-        </div>
-        <button type="submit" class="btn btn-primary" style="width: 100%; justify-content: center;"><i class="fas fa-hand-holding-heart"></i> Join as Volunteer</button>
-      </form>
+          <div class="form-group">
+            <label for="message">Why do you want to volunteer?</label>
+            <textarea id="message" name="message" placeholder="Tell us about your motivation and what you hope to contribute..." rows="4"></textarea>
+          </div>
+          <div style="display: flex; gap: 16px; flex-wrap: wrap;">
+            <button type="submit" class="btn btn-primary" style="flex: 1; justify-content: center;">
+              <i class="fas fa-hand-holding-heart"></i> Submit Application
+            </button>
+            <a href="https://wa.me/919845222812?text=Hello%20SCEAD%20Foundation!%20I%20would%20like%20to%20volunteer.%20Could%20you%20share%20the%20details%3F" target="_blank" class="btn btn-teal" style="flex: 1; justify-content: center; background: #25D366;">
+              <i class="fab fa-whatsapp"></i> WhatsApp Us
+            </a>
+          </div>
+        </form>
+      </div>
     </div>
   </section>
 
   <!-- Footer -->
-  <footer class="footer" id="contact-footer">
+  <footer class="footer">
     <div class="container">
       <div class="footer-grid">
         <div class="footer-about">
           <div class="logo" style="margin-bottom: 16px;">
             <div class="logo-icon">SF</div>
-            <div class="logo-text">
-              <span>SCEAD</span>
-              <span>Foundation India</span>
-            </div>
+            <div class="logo-text"><span>SCEAD</span><span>Foundation India</span></div>
           </div>
-          <p>Space for Children in Education, Art and Development — empowering communities since 1998 through education, environment, and sustainable development.</p>
+          <p>Space for Children in Education, Art and Development — empowering communities since 1998.</p>
           <div class="reg-info">Reg. No: GAN-04-00209 | 80G Reg: AAITS0428E25BL02 | 12A: AAITS0428E25BL01 | CSR-1 Verified</div>
         </div>
         <div class="footer-links">
           <h4>Quick Links</h4>
-          <a href="index.html">Home</a>
-          <a href="about.html">About Us</a>
-          <a href="programs.html">Programs</a>
-          <a href="csr.html">CSR Partnership</a>
-          <a href="volunteer.html">Volunteer</a>
-          <a href="contact.html">Contact</a>
-        <a href="art-gallery.html">Art Gallery</a>
+          <a href="index.html">Home</a><a href="about.html">About Us</a><a href="programs.html">Programs</a>
+          <a href="csr.html">CSR Partnership</a><a href="volunteer.html">Volunteer</a>
+          <a href="contact.html">Contact</a><a href="art-gallery.html">Art Gallery</a>
         </div>
         <div class="footer-links">
           <h4>Programs</h4>
-          <a href="programs.html#environment">Environment</a>
-          <a href="programs.html#education">Education</a>
-          <a href="programs.html#community">Community Dev.</a>
+          <a href="programs.html#environment">Environment</a><a href="programs.html#education">Education</a>
+          <a href="programs.html#hiv-home">Snehalaya Home</a><a href="programs.html#community">Community Dev.</a>
           <a href="programs.html#elderly">Elderly Care</a>
-          <a href="programs.html#women">Women Empowerment</a>
         </div>
         <div class="footer-contact">
           <h4>Contact Us</h4>
-          <p><i class="fas fa-map-marker-alt"></i> #293, 4th Floor, 15th Cross Road, 5th Main Rd, 5th Phase, J.P. Nagar, Bengaluru, Karnataka 560078</p>
+          <p><i class="fas fa-map-marker-alt"></i> J.P. Nagar 5th Phase, Bengaluru 560078</p>
           <p><i class="fas fa-phone"></i> +91 9845222812</p>
           <p><i class="fas fa-envelope"></i> contact@sceadfoundation.org</p>
           <div class="footer-social">
@@ -390,19 +431,12 @@
           </div>
         </div>
       </div>
-      <div class="footer-bottom">
-        &copy; 2026 SCEAD Foundation India. All Rights Reserved.
-      </div>
+      <div class="footer-bottom">&copy; 2026 SCEAD Foundation India. All Rights Reserved.</div>
     </div>
   </footer>
 
-  <!-- Back to Top -->
   <button class="back-to-top" aria-label="Back to top"><i class="fas fa-chevron-up"></i></button>
-
-    <!-- WhatsApp Float -->
   <a href="https://wa.me/919845222812?text=Hello%20SCEAD%20Foundation!%20I%20visited%20your%20website%20and%20would%20love%20to%20know%20more%20about%20your%20work.%20How%20can%20I%20contribute%3F" target="_blank" rel="noopener" class="whatsapp-float" aria-label="Chat on WhatsApp"><i class="fab fa-whatsapp"></i></a>
-
-  <!-- Mobile Donate Float -->
   <a href="#donate" class="donate-float"><i class="fas fa-heart"></i> Donate Now</a>
 
   <script src="scripts.js"></script>
