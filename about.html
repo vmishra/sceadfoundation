@@ -3,13 +3,110 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta name="description" content="About SCEAD Foundation India — Founded in 1998 by Siju Thomas Daniel, empowering underprivileged children, tribal communities, women, and the elderly across Karnataka and Tamil Nadu.">
+  <meta name="description" content="About SCEAD Foundation India — Founded in 1998 by Siju Thomas Daniel, empowering 500K+ lives through education, environment, tribal welfare, and women's empowerment.">
   <title>About Us — SCEAD Foundation India</title>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
   <link rel="stylesheet" href="styles.css">
+  <style>
+    /* About page specific styles */
+    .mission-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 30px; }
+    .mission-card {
+      background: var(--white); padding: 36px; border-radius: var(--radius); box-shadow: var(--shadow);
+      border-top: 4px solid var(--primary); transition: all var(--transition);
+    }
+    .mission-card:nth-child(2) { border-top-color: var(--secondary); }
+    .mission-card:hover { transform: translateY(-5px); box-shadow: var(--shadow-lg); }
+    .mission-card .icon-wrap {
+      width: 56px; height: 56px; border-radius: 50%; display: flex; align-items: center; justify-content: center;
+      font-size: 1.4rem; margin-bottom: 18px;
+    }
+    .mission-card:first-child .icon-wrap { background: rgba(43,188,192,0.1); color: var(--primary); }
+    .mission-card:nth-child(2) .icon-wrap { background: rgba(245,166,35,0.1); color: var(--secondary); }
+    .mission-card h3 { margin-bottom: 12px; font-size: 1.2rem; }
+    .mission-card p { color: var(--gray-600); font-size: 0.95rem; line-height: 1.8; }
+
+    .values-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 24px; }
+    .value-card {
+      background: var(--white); padding: 32px 24px; border-radius: var(--radius); box-shadow: var(--shadow);
+      text-align: center; transition: all var(--transition); position: relative; overflow: hidden;
+    }
+    .value-card::before {
+      content: ''; position: absolute; top: 0; left: 0; width: 100%; height: 4px;
+      background: linear-gradient(90deg, var(--primary), var(--secondary));
+    }
+    .value-card:hover { transform: translateY(-6px); box-shadow: var(--shadow-lg); }
+    .value-card i { font-size: 2rem; margin-bottom: 16px; }
+    .value-card:nth-child(1) i { color: #10B981; }
+    .value-card:nth-child(2) i { color: #3B82F6; }
+    .value-card:nth-child(3) i { color: #8B5CF6; }
+    .value-card:nth-child(4) i { color: #F59E0B; }
+    .value-card h3 { font-size: 1.05rem; margin-bottom: 8px; }
+    .value-card p { font-size: 0.88rem; color: var(--gray-600); line-height: 1.6; }
+
+    .team-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 24px; }
+    .team-card {
+      background: var(--white); padding: 28px; border-radius: var(--radius); box-shadow: var(--shadow);
+      display: flex; gap: 20px; align-items: flex-start; transition: all var(--transition);
+    }
+    .team-card:hover { transform: translateY(-4px); box-shadow: var(--shadow-lg); }
+    .team-avatar {
+      width: 56px; height: 56px; border-radius: 50%; flex-shrink: 0;
+      display: flex; align-items: center; justify-content: center; font-size: 1.3rem; color: var(--white);
+    }
+    .team-card:nth-child(1) .team-avatar { background: linear-gradient(135deg, var(--primary), var(--primary-dark)); }
+    .team-card:nth-child(2) .team-avatar { background: linear-gradient(135deg, #6366F1, #4F46E5); }
+    .team-card:nth-child(3) .team-avatar { background: linear-gradient(135deg, #EC4899, #DB2777); }
+    .team-card:nth-child(4) .team-avatar { background: linear-gradient(135deg, #F59E0B, #D97706); }
+    .team-card:nth-child(5) .team-avatar { background: linear-gradient(135deg, #10B981, #059669); }
+    .team-card:nth-child(6) .team-avatar { background: linear-gradient(135deg, #8B5CF6, #7C3AED); }
+    .team-card:nth-child(7) .team-avatar { background: linear-gradient(135deg, #3B82F6, #2563EB); }
+    .team-card:nth-child(8) .team-avatar { background: linear-gradient(135deg, #EF4444, #DC2626); }
+    .team-card:nth-child(9) .team-avatar { background: linear-gradient(135deg, #14B8A6, #0D9488); }
+    .team-card:nth-child(10) .team-avatar { background: linear-gradient(135deg, #F97316, #EA580C); }
+    .team-info h3 { font-size: 1.05rem; margin-bottom: 2px; }
+    .team-info .role { color: var(--primary); font-size: 0.85rem; font-weight: 600; margin-bottom: 6px; }
+    .team-info p { font-size: 0.85rem; color: var(--gray-600); line-height: 1.5; }
+
+    .presence-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 24px; }
+    .presence-card {
+      background: var(--white); padding: 32px; border-radius: var(--radius); box-shadow: var(--shadow);
+      text-align: center; transition: all var(--transition); border-bottom: 4px solid transparent;
+    }
+    .presence-card:nth-child(1) { border-bottom-color: var(--primary); }
+    .presence-card:nth-child(2) { border-bottom-color: var(--secondary); }
+    .presence-card:nth-child(3) { border-bottom-color: #8B5CF6; }
+    .presence-card:hover { transform: translateY(-5px); box-shadow: var(--shadow-lg); }
+    .presence-card i { font-size: 2rem; margin-bottom: 14px; }
+    .presence-card:nth-child(1) i { color: var(--primary); }
+    .presence-card:nth-child(2) i { color: var(--secondary); }
+    .presence-card:nth-child(3) i { color: #8B5CF6; }
+    .presence-card h3 { font-size: 1.1rem; margin-bottom: 10px; }
+    .presence-card p { font-size: 0.88rem; color: var(--gray-600); line-height: 1.6; }
+
+    .flag-grid {
+      display: grid; grid-template-columns: repeat(auto-fill, minmax(155px, 1fr)); gap: 14px;
+    }
+    .flag-card {
+      background: var(--white); padding: 16px 14px; border-radius: 10px; box-shadow: 0 2px 10px rgba(0,0,0,0.05);
+      display: flex; align-items: center; gap: 12px; transition: all var(--transition); cursor: default;
+    }
+    .flag-card:hover { transform: translateY(-3px); box-shadow: var(--shadow); }
+    .flag-emoji { font-size: 1.6rem; line-height: 1; }
+    .flag-card .country-name { font-size: 0.88rem; font-weight: 600; color: var(--dark); }
+
+    @media (max-width: 992px) {
+      .mission-grid, .team-grid { grid-template-columns: 1fr; }
+      .values-grid { grid-template-columns: repeat(2, 1fr); }
+      .presence-grid { grid-template-columns: 1fr; }
+    }
+    @media (max-width: 480px) {
+      .values-grid { grid-template-columns: 1fr; }
+      .flag-grid { grid-template-columns: repeat(auto-fill, minmax(130px, 1fr)); }
+    }
+  </style>
 </head>
 <body>
 
@@ -18,10 +115,7 @@
     <div class="container">
       <a href="index.html" class="logo" aria-label="SCEAD Foundation Home">
         <div class="logo-icon">SF</div>
-        <div class="logo-text">
-          <span>SCEAD</span>
-          <span>Foundation India</span>
-        </div>
+        <div class="logo-text"><span>SCEAD</span><span>Foundation India</span></div>
       </a>
       <div class="nav-links" id="navLinks">
         <a href="index.html">Home</a>
@@ -42,12 +136,9 @@
   <!-- Page Hero -->
   <section class="page-hero">
     <div class="container">
+      <div class="breadcrumb" data-aos="fade-up"><a href="index.html">Home</a> / <span>About Us</span></div>
       <h1 data-aos="fade-up">About SCEAD Foundation</h1>
-      <div class="breadcrumb" data-aos="fade-up" data-aos-delay="100">
-        <a href="index.html">Home</a>
-        <span>/</span>
-        <span>About Us</span>
-      </div>
+      <p data-aos="fade-up" data-aos-delay="100">25+ years of grassroots impact across India — 500K+ lives touched, 200K+ trees planted, 300K+ women empowered.</p>
     </div>
   </section>
 
@@ -58,18 +149,16 @@
         <div class="about-image" data-aos="fade-right">
           <img src="images/community-gathering.jpg" alt="SCEAD Foundation community gathering and outreach event" loading="lazy">
         </div>
-        <div class="about-cards" data-aos="fade-left">
-          <div class="section-header" style="text-align:left;">
-            <h2>Who We Are</h2>
-          </div>
-          <p style="color: var(--gray-600); font-size: 1.02rem; line-height: 1.9;">
-            <strong>SCEAD Foundation India</strong> — <em>Space for Children in Education, Art and Development</em> — is a registered NGO founded in <strong>1998</strong> in Bengaluru by <strong>Siju Thomas Daniel</strong>.
+        <div data-aos="fade-left">
+          <div class="section-header" style="text-align:left;"><h2>Who We Are</h2></div>
+          <p style="color: var(--gray-600); font-size: 1.02rem; line-height: 1.9; margin-bottom: 16px;">
+            <strong>SCEAD Foundation India</strong> — <em>Space for Children in Education, Art and Development</em> — is a Bengaluru-based non-profit founded in <strong>1998</strong> by <strong>Siju Thomas Daniel</strong>, dedicated to environmental sustainability, social justice, community empowerment, and disaster &amp; crisis management.
           </p>
-          <p style="color: var(--gray-600); font-size: 1.02rem; line-height: 1.9;">
-            <strong>Registration:</strong> GAN-04-00209 (Registered under Indian Govt)
+          <p style="color: var(--gray-600); font-size: 1.02rem; line-height: 1.9; margin-bottom: 16px;">
+            Over two decades, we have successfully reached <strong>500,000+ beneficiaries</strong> across India. We operate Snehalaya Children's Home for HIV-affected children, run girl child orphanages, adopt government schools, distribute livestock to tribal families, and drive large-scale plantation campaigns verified by CERA Mumbai.
           </p>
-          <p style="color: var(--gray-600); font-size: 1.02rem; line-height: 1.9;">
-            Founded in 1998 by Siju Thomas Daniel, SCEAD Foundation India began as a humble initiative to support underprivileged children in Bengaluru. Over 25 years, we've grown into a multi-faceted development organization working across Karnataka and Tamil Nadu — touching lives through education, environmental restoration, women's empowerment, and elderly care.
+          <p style="color: var(--gray-600); font-size: 0.9rem; line-height: 1.6;">
+            <strong>Registration:</strong> GAN-04-00209 | <strong>80G:</strong> AAITS0428E25BL02 | <strong>12A:</strong> AAITS0428E25BL01 | <strong>CSR-1:</strong> Verified
           </p>
         </div>
       </div>
@@ -79,16 +168,16 @@
   <!-- Mission & Vision -->
   <section class="section section-alt" id="mission-vision">
     <div class="container">
-      <div class="section-header" data-aos="fade-up">
-        <h2>Mission &amp; Vision</h2>
-      </div>
-      <div class="cta-grid" style="grid-template-columns: repeat(2, 1fr);">
-        <div class="about-card" data-aos="fade-up">
-          <h3><i class="fas fa-bullseye"></i> Our Mission</h3>
+      <div class="section-header" data-aos="fade-up"><h2>Mission &amp; Vision</h2></div>
+      <div class="mission-grid">
+        <div class="mission-card" data-aos="fade-up">
+          <div class="icon-wrap"><i class="fas fa-bullseye"></i></div>
+          <h3>Our Mission</h3>
           <p>To promote environmental sustainability, education, health, and community development among marginalized communities across India — empowering underprivileged children, tribal villages, women, migrant workers, and elderly citizens.</p>
         </div>
-        <div class="about-card" data-aos="fade-up" data-aos-delay="150">
-          <h3><i class="fas fa-eye"></i> Our Vision</h3>
+        <div class="mission-card" data-aos="fade-up" data-aos-delay="150">
+          <div class="icon-wrap"><i class="fas fa-eye"></i></div>
+          <h3>Our Vision</h3>
           <p>To build a sustainable, inclusive India where every child has access to education, every community has clean sanitation and green spaces, and every woman and elder lives with dignity and financial independence.</p>
         </div>
       </div>
@@ -100,64 +189,35 @@
     <div class="container">
       <div class="section-header" data-aos="fade-up">
         <h2>Our Journey</h2>
-        <p>Over 25 years of grassroots impact across India.</p>
+        <p>Key milestones across 25+ years of sustained grassroots work.</p>
       </div>
       <div class="timeline">
         <div class="timeline-item" data-aos="fade-up">
-          <div class="timeline-content">
-            <h3>1998</h3>
-            <h4>Founded</h4>
-            <p>SCEAD Foundation established in Bengaluru to support underprivileged children's education and development.</p>
-          </div>
+          <div class="timeline-content"><h3>1998</h3><h4>Founded</h4><p>SCEAD Foundation established in Bengaluru by Siju Thomas Daniel to support underprivileged children's education and development.</p></div>
         </div>
-        <div class="timeline-item" data-aos="fade-up" data-aos-delay="100">
-          <div class="timeline-content">
-            <h3>2005</h3>
-            <h4>Expanding Reach</h4>
-            <p>Began working with tribal communities in rural Karnataka, including Bandipur region.</p>
-          </div>
+        <div class="timeline-item" data-aos="fade-up">
+          <div class="timeline-content"><h3>2005</h3><h4>Expanding Reach</h4><p>Began working with tribal communities in rural Karnataka, including the Bandipur region. Launched Snehalaya HIV Home.</p></div>
         </div>
-        <div class="timeline-item" data-aos="fade-up" data-aos-delay="200">
-          <div class="timeline-content">
-            <h3>2010</h3>
-            <h4>Environmental Focus</h4>
-            <p>Launched large-scale plantation drives across Bengaluru, Anekal, Jigani, and Bannerghatta.</p>
-          </div>
+        <div class="timeline-item" data-aos="fade-up">
+          <div class="timeline-content"><h3>2010</h3><h4>Environmental Focus</h4><p>Large-scale plantation drives across Bengaluru, Anekal, Jigani, Bannerghatta. Lake rejuvenation projects initiated.</p></div>
         </div>
-        <div class="timeline-item" data-aos="fade-up" data-aos-delay="300">
-          <div class="timeline-content">
-            <h3>2014</h3>
-            <h4>Tribal Village Adoption</h4>
-            <p>Adopted 3 tribal villages in Bandipur for comprehensive development.</p>
-          </div>
+        <div class="timeline-item" data-aos="fade-up">
+          <div class="timeline-content"><h3>2011</h3><h4>School Adoption</h4><p>Adopted Government Kannada &amp; Tamil School in Cleveland Town, Frazer Town — computer training, library, arts, sports programs.</p></div>
         </div>
-        <div class="timeline-item" data-aos="fade-up" data-aos-delay="400">
-          <div class="timeline-content">
-            <h3>2018</h3>
-            <h4>20 Years of Impact</h4>
-            <p>Celebrated two decades with 5,000+ trees planted, 30+ villages served, and CSR partnerships established.</p>
-          </div>
+        <div class="timeline-item" data-aos="fade-up">
+          <div class="timeline-content"><h3>2014</h3><h4>Tribal Village Adoption</h4><p>Adopted 3 tribal villages in Bandipur — livelihood, sanitation, education, elderly care, and women's empowerment.</p></div>
         </div>
-        <div class="timeline-item" data-aos="fade-up" data-aos-delay="500">
-          <div class="timeline-content">
-            <h3>2020</h3>
-            <h4>Lake Rejuvenation</h4>
-            <p>Initiated lake restoration and water body conservation projects.</p>
-          </div>
+        <div class="timeline-item" data-aos="fade-up">
+          <div class="timeline-content"><h3>2020</h3><h4>COVID-19 Relief</h4><p>12,000 kg food and essential supplies distributed. US Secretary of State Mike Pompeo tweeted about SCEAD's relief work.</p></div>
         </div>
-        <div class="timeline-item" data-aos="fade-up" data-aos-delay="600">
-          <div class="timeline-content">
-            <h3>2023</h3>
-            <h4>International Impact</h4>
-            <p>Turkey earthquake relief, Japanese Consulate peace tree planting, and elderly care expansion powered by Ascend Telecom.</p>
-          </div>
+        <div class="timeline-item" data-aos="fade-up">
+          <div class="timeline-content"><h3>2022</h3><h4>Government Partnership</h4><p>Governor of Karnataka flagged off Million Trees Project. Diplomatic tree planting with consulates of Japan, Germany, Italy.</p></div>
         </div>
-        <div class="timeline-item" data-aos="fade-up" data-aos-delay="700">
-          <div class="timeline-content">
-            <h3>2024-25</h3>
-            <h4>Women Empowerment</h4>
-            <p>Launched reusable sanitary pad production training for tribal women in Bandipur with Saukhyam initiative.</p>
-          </div>
+        <div class="timeline-item" data-aos="fade-up">
+          <div class="timeline-content"><h3>2023</h3><h4>International Recognition</h4><p>Hosted UN Environment Director Erik Solheim. British High Commission event. Italian, Canadian, Japanese consulate partnerships.</p></div>
+        </div>
+        <div class="timeline-item" data-aos="fade-up">
+          <div class="timeline-content"><h3>2024-25</h3><h4>Women Empowerment</h4><p>Saukhyam reusable pad production for tribal women. 3 schools adopted in Tamil Nadu. Genpact "Sowing Seeds of Sustainability" — 7,000 saplings.</p></div>
         </div>
       </div>
     </div>
@@ -168,16 +228,14 @@
     <div class="container">
       <div class="founder-grid">
         <div class="founder-photo" data-aos="zoom-in">
-          <img src="images/elderly-care.jpg" alt="SCEAD Foundation founder's grassroots work with communities" loading="lazy">
+          <img src="images/elderly-care.jpg" alt="SCEAD Foundation founder's grassroots work" loading="lazy">
         </div>
         <div class="founder-content" data-aos="fade-left">
-          <blockquote>
-            We believe that true development starts at the grassroots — when you empower a child with education, a woman with livelihood, and a community with dignity, you change the world one village at a time.
-          </blockquote>
+          <blockquote>We believe that true development starts at the grassroots — when you empower a child with education, a woman with livelihood, and a community with dignity, you change the world one village at a time.</blockquote>
           <div class="founder-name">Siju Thomas Daniel</div>
           <div class="founder-title">Managing Trustee &amp; Founder</div>
-          <p style="color: var(--gray-600); font-size: 1rem; line-height: 1.8; margin-top: 20px;">
-            Siju Thomas Daniel has dedicated over 25 years to grassroots development across India. Under his leadership, SCEAD Foundation has planted over 10,000 trees, served 50+ villages, impacted 10,000+ lives, and built partnerships with leading corporates for sustainable CSR initiatives.
+          <p style="color: var(--gray-600); font-size: 0.95rem; line-height: 1.8; margin-top: 18px;">
+            Siju Thomas Daniel has dedicated over 25 years to grassroots development. Under his leadership, SCEAD Foundation has impacted 500,000+ lives, planted 200,000+ trees, empowered 300,000+ women, built 500+ sanitation units, adopted 35 government schools, and built partnerships with consulates of 7 countries and leading corporates.
           </p>
         </div>
       </div>
@@ -189,101 +247,120 @@
     <div class="container">
       <div class="section-header" data-aos="fade-up">
         <h2>Our Values</h2>
-        <p>The principles that guide everything we do at SCEAD Foundation.</p>
+        <p>The principles that guide everything we do.</p>
       </div>
-      <div class="cta-grid">
-        <div class="info-card" data-aos="fade-up">
+      <div class="values-grid">
+        <div class="value-card" data-aos="fade-up">
           <i class="fas fa-seedling"></i>
           <h3>Grassroots Impact</h3>
           <p>We work directly with communities, ensuring every initiative reaches those who need it most.</p>
         </div>
-        <div class="info-card" data-aos="fade-up" data-aos-delay="100">
-          <i class="fas fa-file-invoice-dollar"></i>
+        <div class="value-card" data-aos="fade-up" data-aos-delay="100">
+          <i class="fas fa-file-shield"></i>
           <h3>Transparency</h3>
-          <p>Complete financial transparency with certified audits, 10+ years of ITR filing, and open reporting.</p>
+          <p>100% clean audits, 10+ years ITR filing, 80G &amp; 12A approved, CSR-1 verified.</p>
         </div>
-        <div class="info-card" data-aos="fade-up" data-aos-delay="200">
-          <i class="fas fa-recycle"></i>
+        <div class="value-card" data-aos="fade-up" data-aos-delay="200">
+          <i class="fas fa-infinity"></i>
           <h3>Sustainability</h3>
-          <p>Every project is designed for long-term impact — from tree planting to women's livelihood training.</p>
+          <p>Every project is designed for long-term impact — CERA-verified plantations to women's livelihood training.</p>
         </div>
-        <div class="info-card" data-aos="fade-up" data-aos-delay="300">
-          <i class="fas fa-people-group"></i>
+        <div class="value-card" data-aos="fade-up" data-aos-delay="300">
+          <i class="fas fa-hand-holding-heart"></i>
           <h3>Inclusivity</h3>
-          <p>We serve all — children, women, tribal families, migrant workers, elderly citizens, and persons with disabilities.</p>
+          <p>Children, women, tribal families, migrant workers, elderly, disabled, and HIV-affected — we serve all.</p>
         </div>
       </div>
     </div>
   </section>
 
-  <!-- Our Team & Advisory Board -->
+  <!-- Team & Advisory Board -->
   <section class="section" id="team">
     <div class="container">
       <div class="section-header" data-aos="fade-up">
         <h2>Our Team &amp; Advisory Board</h2>
         <p>Led by dedicated professionals across government, law, social work, and international development.</p>
       </div>
-      <div class="info-grid" data-aos="fade-up">
-        <div class="info-card" data-aos="fade-up">
-          <i class="fas fa-user-shield"></i>
-          <h3>Siju Thomas Daniel</h3>
-          <p><strong>Founder, Managing Trustee &amp; Director of Projects</strong></p>
-          <p>Visionary leader with over 25 years of grassroots experience in education, environment, and community development across India.</p>
-          <p><i class="fas fa-phone"></i> +91 9845222812</p>
+      <div class="team-grid">
+        <div class="team-card" data-aos="fade-up">
+          <div class="team-avatar"><i class="fas fa-user-shield"></i></div>
+          <div class="team-info">
+            <h3>Siju Thomas Daniel</h3>
+            <div class="role">Founder, Managing Trustee &amp; Director</div>
+            <p>25+ years of grassroots leadership. Phone: +91 9845222812</p>
+          </div>
         </div>
-        <div class="info-card" data-aos="fade-up" data-aos-delay="100">
-          <i class="fas fa-landmark"></i>
-          <h3>Harsha Vardhan Umre, IRS</h3>
-          <p><strong>Senior Adviser &amp; Member</strong></p>
-          <p>Commissioner &ndash; Customs &amp; GST, Government of India. Brings strategic governance expertise to SCEAD's advisory framework.</p>
+        <div class="team-card" data-aos="fade-up" data-aos-delay="100">
+          <div class="team-avatar"><i class="fas fa-landmark"></i></div>
+          <div class="team-info">
+            <h3>Harsha Vardhan Umre, IRS</h3>
+            <div class="role">Senior Adviser &amp; Member</div>
+            <p>Commissioner — Customs &amp; GST, Government of India</p>
+          </div>
         </div>
-        <div class="info-card" data-aos="fade-up" data-aos-delay="200">
-          <i class="fas fa-shield-halved"></i>
-          <h3>Ms Nisha James, IPS</h3>
-          <p><strong>Adviser on Women and Child</strong></p>
-          <p>Indian Police Service, Bangalore. Champions women's safety and child protection initiatives within the foundation.</p>
+        <div class="team-card" data-aos="fade-up">
+          <div class="team-avatar"><i class="fas fa-shield-halved"></i></div>
+          <div class="team-info">
+            <h3>Ms Nisha James, IPS</h3>
+            <div class="role">Adviser on Women and Child</div>
+            <p>Indian Police Service, Bangalore</p>
+          </div>
         </div>
-        <div class="info-card" data-aos="fade-up" data-aos-delay="300">
-          <i class="fas fa-shield-halved"></i>
-          <h3>Suraj Kumar Verma, IPS</h3>
-          <p><strong>Member</strong></p>
-          <p>Superintendent of Police, Indore. Supports community safety and welfare programmes across central India.</p>
+        <div class="team-card" data-aos="fade-up" data-aos-delay="100">
+          <div class="team-avatar"><i class="fas fa-shield-halved"></i></div>
+          <div class="team-info">
+            <h3>Suraj Kumar Verma, IPS</h3>
+            <div class="role">Member</div>
+            <p>Superintendent of Police, Indore</p>
+          </div>
         </div>
-        <div class="info-card" data-aos="fade-up" data-aos-delay="400">
-          <i class="fas fa-user-tie"></i>
-          <h3>V Ganapathy</h3>
-          <p><strong>Trustee</strong></p>
-          <p>Head of Kerala Project. Oversees expansion and programme delivery across Kerala's underserved communities.</p>
+        <div class="team-card" data-aos="fade-up">
+          <div class="team-avatar"><i class="fas fa-user-tie"></i></div>
+          <div class="team-info">
+            <h3>V Ganapathy</h3>
+            <div class="role">Trustee — Head of Kerala Project</div>
+            <p>Oversees expansion across Kerala's underserved communities</p>
+          </div>
         </div>
-        <div class="info-card" data-aos="fade-up" data-aos-delay="500">
-          <i class="fas fa-user-tie"></i>
-          <h3>Shibu Daniel</h3>
-          <p><strong>Member &amp; Trustee</strong></p>
-          <p>Core trustee contributing to organisational governance and strategic planning of foundation activities.</p>
+        <div class="team-card" data-aos="fade-up" data-aos-delay="100">
+          <div class="team-avatar"><i class="fas fa-user-tie"></i></div>
+          <div class="team-info">
+            <h3>Shibu Daniel</h3>
+            <div class="role">Member &amp; Trustee</div>
+            <p>Organisational governance and strategic planning</p>
+          </div>
         </div>
-        <div class="info-card" data-aos="fade-up" data-aos-delay="600">
-          <i class="fas fa-calculator"></i>
-          <h3>Mr Sudhindranath Vasudevan</h3>
-          <p><strong>Senior Adviser &amp; Auditor</strong></p>
-          <p>Ensures complete financial transparency, certified audits, and compliance with all regulatory standards.</p>
+        <div class="team-card" data-aos="fade-up">
+          <div class="team-avatar"><i class="fas fa-calculator"></i></div>
+          <div class="team-info">
+            <h3>Mr Sudhindranath Vasudevan</h3>
+            <div class="role">Senior Adviser &amp; Auditor</div>
+            <p>Financial transparency, certified audits, regulatory compliance</p>
+          </div>
         </div>
-        <div class="info-card" data-aos="fade-up" data-aos-delay="700">
-          <i class="fas fa-child-reaching"></i>
-          <h3>Arun Shiva Ganesh</h3>
-          <p><strong>Member</strong></p>
-          <p>Social Entrepreneur &amp; Child Rights Activist. Drives innovation in child welfare and education programmes.</p>
+        <div class="team-card" data-aos="fade-up" data-aos-delay="100">
+          <div class="team-avatar"><i class="fas fa-child-reaching"></i></div>
+          <div class="team-info">
+            <h3>Arun Shiva Ganesh</h3>
+            <div class="role">Social Entrepreneur &amp; Child Rights Activist</div>
+            <p>Innovation in child welfare and education programmes</p>
+          </div>
         </div>
-        <div class="info-card" data-aos="fade-up" data-aos-delay="800">
-          <i class="fas fa-graduation-cap"></i>
-          <h3>Prof. Mohit Verma</h3>
-          <p><strong>Vice President, SCEAD Chandigarh</strong></p>
-          <p>Leads the Chandigarh branch, expanding SCEAD's educational and community initiatives into northern India.</p>
+        <div class="team-card" data-aos="fade-up">
+          <div class="team-avatar"><i class="fas fa-graduation-cap"></i></div>
+          <div class="team-info">
+            <h3>Prof. Mohit Verma</h3>
+            <div class="role">Vice President, SCEAD Chandigarh</div>
+            <p>Leads northern India expansion and educational initiatives</p>
+          </div>
         </div>
-        <div class="info-card" data-aos="fade-up" data-aos-delay="900">
-          <i class="fas fa-globe"></i>
-          <h3>Nikhil Jha</h3>
-          <p><strong>Member &amp; Technical Adviser</strong></p>
-          <p>Head of Volunteers, Australia. Coordinates the international volunteer network and drives technology-led outreach.</p>
+        <div class="team-card" data-aos="fade-up" data-aos-delay="100">
+          <div class="team-avatar"><i class="fas fa-globe"></i></div>
+          <div class="team-info">
+            <h3>Nikhil Jha</h3>
+            <div class="role">Technical Adviser — Head of Volunteers, Australia</div>
+            <p>International volunteer network and technology outreach</p>
+          </div>
         </div>
       </div>
     </div>
@@ -294,26 +371,26 @@
     <div class="container">
       <div class="section-header" data-aos="fade-up">
         <h2>Our Presence</h2>
-        <p>Operating from multiple cities across India with a growing national footprint.</p>
+        <p>Operating from multiple cities across India.</p>
       </div>
-      <div class="cta-grid" data-aos="fade-up">
-        <div class="info-card" data-aos="fade-up">
+      <div class="presence-grid">
+        <div class="presence-card" data-aos="fade-up">
           <i class="fas fa-building"></i>
-          <h3>Bengaluru (Headquarters)</h3>
+          <h3>Bengaluru HQ</h3>
           <p>#293, 4th Floor, 15th Cross Road, 5th Main Rd, 5th Phase, J.P. Nagar, Bengaluru 560078</p>
-          <p><i class="fas fa-phone"></i> +91 9845222812</p>
+          <p style="margin-top:8px; font-weight:600; color:var(--dark);"><i class="fas fa-phone" style="color:var(--primary);"></i> +91 9845222812</p>
         </div>
-        <div class="info-card" data-aos="fade-up" data-aos-delay="100">
+        <div class="presence-card" data-aos="fade-up" data-aos-delay="100">
           <i class="fas fa-city"></i>
           <h3>Mumbai Office</h3>
-          <p>Social Nagar, M.G. Road, Sion &ndash; Dharavi, Mumbai 400022</p>
-          <p><i class="fas fa-user"></i> Contact: Mayur Bansode</p>
+          <p>Social Nagar, M.G. Road, Sion — Dharavi, Mumbai 400022</p>
+          <p style="margin-top:8px; font-weight:600; color:var(--dark);"><i class="fas fa-user" style="color:var(--secondary);"></i> Mayur Bansode</p>
         </div>
-        <div class="info-card" data-aos="fade-up" data-aos-delay="200">
+        <div class="presence-card" data-aos="fade-up" data-aos-delay="200">
           <i class="fas fa-map-pin"></i>
           <h3>Chandigarh Branch</h3>
-          <p>Led by Prof. Mohit Verma, Vice President of SCEAD Chandigarh.</p>
-          <p><i class="fas fa-envelope"></i> contactchandigarh@sceadfoundation.org</p>
+          <p>Led by Prof. Mohit Verma, Vice President</p>
+          <p style="margin-top:8px; font-weight:600; color:var(--dark);"><i class="fas fa-envelope" style="color:#8B5CF6;"></i> contactchandigarh@sceadfoundation.org</p>
         </div>
       </div>
     </div>
@@ -324,97 +401,40 @@
     <div class="container">
       <div class="section-header" data-aos="fade-up">
         <h2>Global Volunteer Network</h2>
-        <p>An international community united by a shared mission to serve.</p>
+        <p>300+ volunteers and coordinators across 17 countries, united by a shared mission.</p>
       </div>
-      <p style="color: var(--gray-600); font-size: 1.05rem; line-height: 1.9; text-align: center; max-width: 900px; margin: 0 auto 40px;" data-aos="fade-up">
-        SCEAD Foundation has a network of over 300 international volunteers and coordinators across 15+ countries &mdash; including Poland, Germany, Austria, Switzerland, Czech Republic, Netherlands, Sweden, USA, Brazil, Russia, Singapore, Taiwan, Australia, Egypt, Turkey, Albania, and Bahrain.
-      </p>
-      <div class="info-grid" data-aos="fade-up" style="grid-template-columns: repeat(auto-fit, minmax(140px, 1fr)); gap: 16px; text-align: center;">
-        <div class="info-card" style="padding: 20px 10px;">
-          <i class="fas fa-flag" style="color: var(--primary);"></i>
-          <h3 style="font-size: 0.95rem;">Poland</h3>
-        </div>
-        <div class="info-card" style="padding: 20px 10px;">
-          <i class="fas fa-flag" style="color: var(--primary);"></i>
-          <h3 style="font-size: 0.95rem;">Germany</h3>
-        </div>
-        <div class="info-card" style="padding: 20px 10px;">
-          <i class="fas fa-flag" style="color: var(--primary);"></i>
-          <h3 style="font-size: 0.95rem;">Austria</h3>
-        </div>
-        <div class="info-card" style="padding: 20px 10px;">
-          <i class="fas fa-flag" style="color: var(--primary);"></i>
-          <h3 style="font-size: 0.95rem;">Switzerland</h3>
-        </div>
-        <div class="info-card" style="padding: 20px 10px;">
-          <i class="fas fa-flag" style="color: var(--primary);"></i>
-          <h3 style="font-size: 0.95rem;">Czech Republic</h3>
-        </div>
-        <div class="info-card" style="padding: 20px 10px;">
-          <i class="fas fa-flag" style="color: var(--primary);"></i>
-          <h3 style="font-size: 0.95rem;">Netherlands</h3>
-        </div>
-        <div class="info-card" style="padding: 20px 10px;">
-          <i class="fas fa-flag" style="color: var(--primary);"></i>
-          <h3 style="font-size: 0.95rem;">Sweden</h3>
-        </div>
-        <div class="info-card" style="padding: 20px 10px;">
-          <i class="fas fa-flag" style="color: var(--primary);"></i>
-          <h3 style="font-size: 0.95rem;">USA</h3>
-        </div>
-        <div class="info-card" style="padding: 20px 10px;">
-          <i class="fas fa-flag" style="color: var(--primary);"></i>
-          <h3 style="font-size: 0.95rem;">Brazil</h3>
-        </div>
-        <div class="info-card" style="padding: 20px 10px;">
-          <i class="fas fa-flag" style="color: var(--primary);"></i>
-          <h3 style="font-size: 0.95rem;">Russia</h3>
-        </div>
-        <div class="info-card" style="padding: 20px 10px;">
-          <i class="fas fa-flag" style="color: var(--primary);"></i>
-          <h3 style="font-size: 0.95rem;">Singapore</h3>
-        </div>
-        <div class="info-card" style="padding: 20px 10px;">
-          <i class="fas fa-flag" style="color: var(--primary);"></i>
-          <h3 style="font-size: 0.95rem;">Taiwan</h3>
-        </div>
-        <div class="info-card" style="padding: 20px 10px;">
-          <i class="fas fa-flag" style="color: var(--primary);"></i>
-          <h3 style="font-size: 0.95rem;">Australia</h3>
-        </div>
-        <div class="info-card" style="padding: 20px 10px;">
-          <i class="fas fa-flag" style="color: var(--primary);"></i>
-          <h3 style="font-size: 0.95rem;">Egypt</h3>
-        </div>
-        <div class="info-card" style="padding: 20px 10px;">
-          <i class="fas fa-flag" style="color: var(--primary);"></i>
-          <h3 style="font-size: 0.95rem;">Turkey</h3>
-        </div>
-        <div class="info-card" style="padding: 20px 10px;">
-          <i class="fas fa-flag" style="color: var(--primary);"></i>
-          <h3 style="font-size: 0.95rem;">Albania</h3>
-        </div>
-        <div class="info-card" style="padding: 20px 10px;">
-          <i class="fas fa-flag" style="color: var(--primary);"></i>
-          <h3 style="font-size: 0.95rem;">Bahrain</h3>
-        </div>
+      <div class="flag-grid" data-aos="fade-up">
+        <div class="flag-card"><span class="flag-emoji">&#x1F1F5;&#x1F1F1;</span><span class="country-name">Poland</span></div>
+        <div class="flag-card"><span class="flag-emoji">&#x1F1E9;&#x1F1EA;</span><span class="country-name">Germany</span></div>
+        <div class="flag-card"><span class="flag-emoji">&#x1F1E6;&#x1F1F9;</span><span class="country-name">Austria</span></div>
+        <div class="flag-card"><span class="flag-emoji">&#x1F1E8;&#x1F1ED;</span><span class="country-name">Switzerland</span></div>
+        <div class="flag-card"><span class="flag-emoji">&#x1F1E8;&#x1F1FF;</span><span class="country-name">Czech Republic</span></div>
+        <div class="flag-card"><span class="flag-emoji">&#x1F1F3;&#x1F1F1;</span><span class="country-name">Netherlands</span></div>
+        <div class="flag-card"><span class="flag-emoji">&#x1F1F8;&#x1F1EA;</span><span class="country-name">Sweden</span></div>
+        <div class="flag-card"><span class="flag-emoji">&#x1F1FA;&#x1F1F8;</span><span class="country-name">USA</span></div>
+        <div class="flag-card"><span class="flag-emoji">&#x1F1E7;&#x1F1F7;</span><span class="country-name">Brazil</span></div>
+        <div class="flag-card"><span class="flag-emoji">&#x1F1F7;&#x1F1FA;</span><span class="country-name">Russia</span></div>
+        <div class="flag-card"><span class="flag-emoji">&#x1F1F8;&#x1F1EC;</span><span class="country-name">Singapore</span></div>
+        <div class="flag-card"><span class="flag-emoji">&#x1F1F9;&#x1F1FC;</span><span class="country-name">Taiwan</span></div>
+        <div class="flag-card"><span class="flag-emoji">&#x1F1E6;&#x1F1FA;</span><span class="country-name">Australia</span></div>
+        <div class="flag-card"><span class="flag-emoji">&#x1F1EA;&#x1F1EC;</span><span class="country-name">Egypt</span></div>
+        <div class="flag-card"><span class="flag-emoji">&#x1F1F9;&#x1F1F7;</span><span class="country-name">Turkey</span></div>
+        <div class="flag-card"><span class="flag-emoji">&#x1F1E6;&#x1F1F1;</span><span class="country-name">Albania</span></div>
+        <div class="flag-card"><span class="flag-emoji">&#x1F1E7;&#x1F1ED;</span><span class="country-name">Bahrain</span></div>
       </div>
     </div>
   </section>
 
   <!-- Footer -->
-  <footer class="footer" id="contact-footer">
+  <footer class="footer">
     <div class="container">
       <div class="footer-grid">
         <div class="footer-about">
           <div class="logo" style="margin-bottom: 16px;">
             <div class="logo-icon">SF</div>
-            <div class="logo-text">
-              <span>SCEAD</span>
-              <span>Foundation India</span>
-            </div>
+            <div class="logo-text"><span>SCEAD</span><span>Foundation India</span></div>
           </div>
-          <p>Space for Children in Education, Art and Development — empowering communities since 1998 through education, environment, and sustainable development.</p>
+          <p>Space for Children in Education, Art and Development — empowering communities since 1998.</p>
           <div class="reg-info">Reg. No: GAN-04-00209 | 80G Reg: AAITS0428E25BL02 | 12A: AAITS0428E25BL01 | CSR-1 Verified</div>
         </div>
         <div class="footer-links">
@@ -425,15 +445,15 @@
           <a href="csr.html">CSR Partnership</a>
           <a href="volunteer.html">Volunteer</a>
           <a href="contact.html">Contact</a>
-        <a href="art-gallery.html">Art Gallery</a>
+          <a href="art-gallery.html">Art Gallery</a>
         </div>
         <div class="footer-links">
           <h4>Programs</h4>
           <a href="programs.html#environment">Environment</a>
           <a href="programs.html#education">Education</a>
+          <a href="programs.html#hiv-home">Snehalaya Home</a>
           <a href="programs.html#community">Community Dev.</a>
           <a href="programs.html#elderly">Elderly Care</a>
-          <a href="programs.html#women">Women Empowerment</a>
         </div>
         <div class="footer-contact">
           <h4>Contact Us</h4>
@@ -448,19 +468,12 @@
           </div>
         </div>
       </div>
-      <div class="footer-bottom">
-        &copy; 2026 SCEAD Foundation India. All Rights Reserved.
-      </div>
+      <div class="footer-bottom">&copy; 2026 SCEAD Foundation India. All Rights Reserved.</div>
     </div>
   </footer>
 
-  <!-- Back to Top -->
   <button class="back-to-top" aria-label="Back to top"><i class="fas fa-chevron-up"></i></button>
-
-    <!-- WhatsApp Float -->
   <a href="https://wa.me/919845222812?text=Hello%20SCEAD%20Foundation!%20I%20visited%20your%20website%20and%20would%20love%20to%20know%20more%20about%20your%20work.%20How%20can%20I%20contribute%3F" target="_blank" rel="noopener" class="whatsapp-float" aria-label="Chat on WhatsApp"><i class="fab fa-whatsapp"></i></a>
-
-  <!-- Mobile Donate Float -->
   <a href="#donate" class="donate-float"><i class="fas fa-heart"></i> Donate Now</a>
 
   <script src="scripts.js"></script>
