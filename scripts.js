@@ -142,21 +142,15 @@ document.addEventListener('DOMContentLoaded', () => {
     track.innerHTML = items + items;
   }
 
-  // ---------- Form Validation ----------
+  // ---------- Form Submit Feedback ----------
   document.querySelectorAll('form').forEach(form => {
-    form.addEventListener('submit', (e) => {
-      e.preventDefault();
+    form.addEventListener('submit', () => {
       const btn = form.querySelector('button[type="submit"]');
-      const originalText = btn.textContent;
-      btn.textContent = 'Thank you! We\'ll be in touch.';
-      btn.disabled = true;
-      btn.style.opacity = '0.7';
-      setTimeout(() => {
-        btn.textContent = originalText;
-        btn.disabled = false;
-        btn.style.opacity = '1';
-        form.reset();
-      }, 3000);
+      if (btn) {
+        btn.textContent = 'Sending...';
+        btn.disabled = true;
+        btn.style.opacity = '0.7';
+      }
     });
   });
 
