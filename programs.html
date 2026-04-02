@@ -218,13 +218,21 @@
       .feat-grid { grid-template-columns: 1fr; }
     }
     @media (max-width: 600px) {
-      .prog-strip { grid-template-columns: repeat(2, 1fr); }
+      .prog-strip { grid-template-columns: repeat(2, 1fr); gap: 12px; }
+      .prog-pill { padding: 16px 12px; }
+      .prog-pill .big { font-size: 1.4rem; }
+      .prog-pill .lbl { font-size: 0.72rem; }
       .community-gallery { grid-template-columns: 1fr; }
       .comm-grid { grid-template-columns: 1fr; }
       .events-grid { grid-template-columns: 1fr; }
+      .event-card-img { height: 160px; }
+      .dual-card { padding: 24px 18px; }
+      .relief-card { padding: 24px 18px; }
+      .feat-card p { font-size: 0.82rem; }
     }
-    @media (max-width: 480px) {
-      .prog-strip { grid-template-columns: 1fr; }
+    @media (max-width: 380px) {
+      .prog-strip { grid-template-columns: repeat(2, 1fr); gap: 10px; }
+      .prog-pill .big { font-size: 1.2rem; }
     }
   </style>
 </head>

@@ -123,10 +123,21 @@
       .testimonial-grid { grid-template-columns: 1fr; }
       .intern-features { grid-template-columns: 1fr; }
     }
-    @media (max-width: 480px) {
-      .stat-strip { grid-template-columns: 1fr; }
-      .yoga-banner { flex-direction: column; text-align: center; }
-      .form-card { padding: 24px 20px; }
+    @media (max-width: 600px) {
+      .stat-strip { grid-template-columns: repeat(2, 1fr); gap: 14px; }
+      .stat-pill { padding: 18px 14px; }
+      .stat-pill .big { font-size: 1.6rem; }
+      .stat-pill .lbl { font-size: 0.75rem; }
+      .opp-grid { grid-template-columns: 1fr; }
+      .opp-card { padding: 24px 18px; }
+      .flag-grid { grid-template-columns: repeat(2, 1fr); }
+      .yoga-banner { flex-direction: column; text-align: center; padding: 28px 20px; }
+      .yoga-banner i { font-size: 2.2rem; }
+      .form-card { padding: 24px 16px; }
+    }
+    @media (max-width: 380px) {
+      .stat-strip { grid-template-columns: repeat(2, 1fr); gap: 10px; }
+      .stat-pill .big { font-size: 1.4rem; }
     }
   </style>
 </head>

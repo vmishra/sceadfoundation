@@ -1209,26 +1209,73 @@ h3 { font-size: clamp(1.2rem, 3vw, 1.5rem); }
 }
 
 @media (max-width: 768px) {
-  .section { padding: 60px 0; }
+  .section { padding: 50px 0; }
 
-  .hero-content h1 { font-size: 2rem; }
+  .hero { min-height: 90vh; }
+  .hero-content h1 { font-size: 1.65rem; line-height: 1.25; }
+  .hero-content p { font-size: 0.92rem; line-height: 1.7; padding: 0 4px; }
 
-  .stats-grid { grid-template-columns: repeat(2, 1fr); gap: 20px; }
-  .stat-number { font-size: 2rem; }
+  .stats-grid { grid-template-columns: repeat(2, 1fr); gap: 16px; }
+  .stat-number { font-size: 1.8rem; }
+  .stat-label { font-size: 0.78rem; }
 
-  .footer-grid { grid-template-columns: 1fr; }
+  .footer-grid { grid-template-columns: 1fr; gap: 30px; }
 
   .form-grid { grid-template-columns: 1fr; }
 
-  .page-hero { padding: 120px 0 60px; }
+  .page-hero { padding: 110px 0 50px; }
+  .page-hero h1 { font-size: 1.7rem; }
+  .page-hero p { font-size: 0.9rem; padding: 0 8px; }
+
+  .section-header { margin-bottom: 35px; }
+  .section-header h2 { font-size: 1.5rem; }
+  .section-header p { font-size: 0.9rem; }
+
+  .info-grid { grid-template-columns: 1fr; }
+
+  .founder-photo { width: 160px; height: 160px; }
+  .founder-content blockquote { font-size: 1.05rem; }
+
+  .project-card-body h3 { font-size: 0.95rem; }
+  .project-card-body p { font-size: 0.85rem; }
+
+  .year-divider .year-label { font-size: 0.95rem; padding: 6px 18px; }
+  .year-divider .year-count { font-size: 0.75rem; }
 }
 
 @media (max-width: 480px) {
   .stats-grid { grid-template-columns: repeat(2, 1fr); }
 
+  .hero-content h1 { font-size: 1.5rem; word-break: break-word; hyphens: auto; }
   .hero-buttons { flex-direction: column; align-items: center; }
+  .hero-buttons .btn { width: 100%; justify-content: center; }
 
   .container { padding: 0 16px; }
+
+  .page-hero h1 { font-size: 1.35rem; word-break: break-word; }
+  .page-hero p { font-size: 0.85rem; }
+
+  .section-header h2 { font-size: 1.2rem; word-break: break-word; }
+
+  .logo-text span:first-child { font-size: 1.1rem; letter-spacing: 1.5px; }
+  .logo-text span:last-child { font-size: 0.55rem; }
+  .logo-icon { width: 36px; height: 36px; font-size: 0.7rem; }
+
+  .navbar .container { height: 62px; }
+  .nav-links { top: 62px; }
+
+  .trust-strip .container { gap: 8px; justify-content: flex-start; overflow-x: auto; flex-wrap: nowrap; padding: 0 12px; }
+  .trust-badge { font-size: 0.7rem; gap: 4px; }
+  .trust-badge strong { font-size: 0.78rem; }
+
+  .about-card { padding: 20px; }
+  .about-card h3 { font-size: 1.05rem; }
+
+  .cta-card { padding: 28px 20px; }
+
+  .focus-card-body { padding: 20px; }
+
+  .partner-item { font-size: 0.82rem; padding: 14px 20px; }
 }
 
 /* ---------- Trust Badges Strip ---------- */
@@ -1351,7 +1398,8 @@ h3 { font-size: clamp(1.2rem, 3vw, 1.5rem); }
 
 @media (max-width: 768px) {
   .donate-float { display: flex; align-items: center; gap: 8px; }
-  .back-to-top { bottom: 80px; }
+  .back-to-top { bottom: 90px; right: 20px; width: 40px; height: 40px; font-size: 1rem; }
+  .whatsapp-float { bottom: 90px; left: 20px; width: 50px; height: 50px; font-size: 1.5rem; }
 }
 
 @keyframes pulse-donate {
