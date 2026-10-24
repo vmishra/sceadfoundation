@@ -196,7 +196,7 @@ No build step. No dependencies. No configuration.
 ## Deployment
 
 Live at https://scead.excelfinvest.com on server hel1-4 (Cloudflare → nginx, static files), site id `sceadfoundation`.
-Publish: push to `main`, then `ssh -p 2222 vmishra@89.167.4.245 site deploy sceadfoundation`. The full server setup
+Publish: push to `main`, then `ssh -p 2222 vmishra@hel1-4 site deploy sceadfoundation`. The full server setup
 and step-by-step rebuild is **[docs/SERVER_SETUP.md](docs/SERVER_SETUP.md)**.
 
 ## Our Partners

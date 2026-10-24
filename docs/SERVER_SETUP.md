@@ -9,7 +9,7 @@
 | | |
 |---|---|
 | Domain(s) | scead.excelfinvest.com |
-| Server | hel1-4 (Hetzner Cloud, 89.167.4.245, Ubuntu 24.04); `ssh -p 2222 vmishra@89.167.4.245` |
+| Server | hel1-4 (Hetzner Cloud, 89.167.4.245, Ubuntu 24.04); `ssh -p 2222 vmishra@hel1-4` — **over Tailscale only** (public SSH is closed) |
 | Traffic | Cloudflare (proxied, SSL Full strict) → nginx :443 → static files |
 | Site id | `sceadfoundation` (used by every `site` command) |
 | What it is | plain static HTML |
@@ -23,7 +23,7 @@
 
 ```bash
 site status sceadfoundation              # checkout, live release, health, releases, last backups
-site deploy sceadfoundation              # pull main → build a NEW release → switch → health check
+site deploy sceadfoundation              # pull main → build a NEW release → switch → health check → purge CDN
 site deploy sceadfoundation --force      # rebuild the same commit
 site rollback sceadfoundation            # previous release
 site logs sceadfoundation [-f]
@@ -39,9 +39,10 @@ the new release fails its health check, the tool switches back automatically, re
 
 - The repo root *is* the website. `site deploy` publishes it with `rsync`, excluding `README.md`, `LICENSE`,
   `nginx-scead.conf`, `docs/` and `.git*`. `screenshots/` **is** published, because `index.html` uses it.
-- File names are not content-hashed, so assets are cached for 7 days. Purge Cloudflare after a visual change.
-- **Cloudflare:** the `scead` record must be **proxied (orange cloud)**. Until 2026-10-24 it was DNS-only, which exposed
-  the server's real IP. Once the firewall is locked to Cloudflare, a DNS-only record stops working.
+- File names are not content-hashed, so assets are cached for 7 days. Every deploy purges `scead.excelfinvest.com` (only
+  this hostname) from Cloudflare.
+- **Cloudflare:** the `scead` record must stay **proxied (orange cloud)**. It was DNS-only until 2026-10-24, which exposed
+  the server's real IP. The firewall now accepts web traffic only from Cloudflare, so a DNS-only record would go dark.
 - `nginx-scead.conf` in the repo is the original vhost. The live one is reproduced below.
 
 ## 4. Rebuild on a new server
@@ -52,7 +53,7 @@ The full, current procedure is `/srv/SERVER.md` on any of these servers, and the
 (its `files/` directory holds every config at its installed path). In short, as root on a fresh Ubuntu 24.04:
 
 ```bash
-# deploy user (key-only SSH; sudo needs a password)
+# deploy user (key-only SSH; sudo needs a password; the ONLY account allowed to log in)
 adduser vmishra && usermod -aG sudo vmishra
 install -d -m 700 -o vmishra -g vmishra /home/vmishra/.ssh   # then add your laptop public key to authorized_keys
 
@@ -63,12 +64,14 @@ apt-get install -y nginx certbot python3-certbot-nginx git curl build-essential 
 curl -fsSL https://deb.nodesource.com/setup_24.x | bash - && apt-get install -y nodejs
 npm install -g npm@11.6.2
 
-# SSH: keys only           -> /etc/ssh/sshd_config.d/99-hardening.conf
-#   PasswordAuthentication no, KbdInteractiveAuthentication no, PermitRootLogin prohibit-password,
-#   X11Forwarding no, MaxAuthTries 3, AllowAgentForwarding no            (sshd -t && systemctl reload ssh)
-# fail2ban                 -> /etc/fail2ban/jail.local, [sshd] mode=aggressive, and on Ubuntu 24.04
-#   journalmatch = _SYSTEMD_UNIT=ssh.service + _COMM=sshd   (the stock match sees nothing)
-# firewall                 -> ufw default deny; allow the SSH port, 80, 443; enable
+# SSH: keys only           -> /etc/ssh/sshd_config.d/99-hardening.conf (copy from the kit): no passwords, AllowUsers vmishra,
+#   PermitRootLogin no, modern KEX/ciphers/MACs only, no X11/agent/reverse-tunnel forwarding, MaxAuthTries 3,
+#   MaxStartups 10:30:60, LogLevel VERBOSE                                   (sshd -t && systemctl reload ssh)
+# fail2ban                 -> /etc/fail2ban/jail.local: [sshd] mode=aggressive, 3 tries/1h, escalating bans; [recidive]
+#   4-week all-port ban; on Ubuntu 24.04 journalmatch = _SYSTEMD_UNIT=ssh.service + _COMM=sshd (stock match sees nothing)
+# Tailscale                -> install from pkgs.tailscale.com; tailscale up --hostname=<name> --ssh=false --accept-dns=false;
+#   disable key expiry for the node in the admin; 52unattended-upgrades-tailscale; ssh-failsafe.timer
+# firewall                 -> ufw default deny; 2222 only on tailscale0; 80/443 only from Cloudflare (cf-sync lockdown)
 # swap 2G + sysctl         -> /etc/sysctl.d/98-swappiness.conf, 99-hardening.conf
 # journald cap             -> /etc/systemd/journald.conf.d/size.conf (SystemMaxUse=500M)
 # nginx                    -> server_tokens off; ssl_protocols TLSv1.2 TLSv1.3; worker_connections 4096;
@@ -76,8 +79,10 @@ npm install -g npm@11.6.2
 #                             sites-available/00-default.conf (catch-all that drops unknown hosts)
 # site tool + timers       -> /usr/local/sbin/site, /etc/sudoers.d/60-site,
 #                             site-health.timer (2 min), site-backup.timer (03:30 UTC), site-autodeploy@.timer
-# Cloudflare               -> /usr/local/bin/cf-sync.sh + /etc/cron.d/cf-sync (real client IP; optional 80/443 lockdown)
+# Cloudflare               -> /usr/local/bin/cf-sync.sh + /etc/cron.d/cf-sync (real client IP; 80/443 lockdown);
+#                             purge token (Zone Cache Purge + Zone Read, IP-locked) in /etc/site/cloudflare.env (root 0600)
 # alerts                   -> /etc/site/ntfy.conf (random topic), /usr/local/bin/ssh-login-notify.sh via /etc/pam.d/sshd
+# off-box backups          -> a PC pulls /srv/backups daily with a key pinned to: restrict,command="rrsync -ro /srv/backups/"
 ```
 
 ### 4.2 This site
@@ -119,6 +124,8 @@ GITHUB_REPO=vmishra/sceadfoundation
 BRANCH=main
 PUBLISH_DIR=.
 PUBLISH_EXCLUDES="README.md LICENSE nginx-scead.conf docs"
+# Cloudflare zone (not secret): deploys purge this site's hostnames with the token in /etc/site/cloudflare.env
+CF_ZONE_ID=bb8e1b36e5e7b58061b641990bbdf7c7
 ```
 
 **4. DNS and certificate**
@@ -132,6 +139,9 @@ certbot certonly --nginx --key-type ecdsa -m vikvikvik007@gmail.com --agree-tos 
 ```
 
 (When moving a live site, copying `/etc/letsencrypt` from the old server avoids re-issuing.)
+
+Cache purge: in Cloudflare → My Profile → API Tokens, edit the server's purge token and add this zone under *Zone
+Resources*; the zone id goes in `site.conf` as `CF_ZONE_ID` (already there for this server).
 
 **5. nginx vhost `/etc/nginx/sites-available/sceadfoundation.conf`**
 
